@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { MessageSquare, X, Send, Bot, Loader2, Sparkles } from "lucide-react";
 
 type Message = {
@@ -8,11 +9,19 @@ type Message = {
     role: "user" | "assistant";
     content: string;
     timestamp: Date;
+    component?: React.ReactNode;
 };
 
 export default function ChatWidget() {
+    const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        console.log("ChatWidget Mounted");
+    }, []);
+
     const [inputValue, setInputValue] = useState("");
+
     const [messages, setMessages] = useState<Message[]>([
         {
             id: "1",
@@ -65,11 +74,20 @@ export default function ChatWidget() {
             }
 
             const data = await response.json();
+
+            let componentNode = null;
+            if (data.dataviz && data.componentCode) {
+                // Update the view to show the dashboard on the same page
+                router.push('/?view=dashboard');
+                return; // Stop processing further to avoid adding the message if we are leaving
+            }
+
             const aiMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 role: "assistant",
                 content: data.content || "Sorry, I couldn't understand that.",
                 timestamp: new Date(),
+                component: componentNode
             };
             setMessages((prev) => [...prev, aiMessage]);
         } catch (error) {
@@ -91,7 +109,7 @@ export default function ChatWidget() {
             {/* Floating Button */}
             <button
                 onClick={toggleChat}
-                className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center ${isOpen
+                className={`fixed bottom-6 right-6 z-[9999] p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center ${isOpen
                     ? "bg-red-500 hover:bg-red-600 rotate-90"
                     : "bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/50"
                     } text-white`}
@@ -102,11 +120,11 @@ export default function ChatWidget() {
 
             {/* Chat Window */}
             <div
-                className={`fixed bottom-24 right-6 z-50 w-[90vw] sm:w-[400px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col transition-all duration-300 origin-bottom-right ${isOpen
+                className={`fixed bottom-24 right-6 z-[9999] w-[90vw] sm:w-[450px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col transition-all duration-300 origin-bottom-right ${isOpen
                     ? "opacity-100 scale-100 translate-y-0"
                     : "opacity-0 scale-95 translate-y-10 pointer-events-none"
                     }`}
-                style={{ height: "min(600px, 80vh)" }}
+                style={{ height: "min(700px, 85vh)" }}
             >
                 {/* Header */}
                 <div className="p-4 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50 rounded-t-2xl flex items-center justify-between backdrop-blur-sm">
@@ -116,13 +134,13 @@ export default function ChatWidget() {
                         </div>
                         <div>
                             <h3 className="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
-                                AI Assistant
+                                AI Analyst
                                 <span className="flex h-2 w-2 relative">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                                 </span>
                             </h3>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Online & Ready</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Data Intelligence Active</p>
                         </div>
                     </div>
                     <button
@@ -137,7 +155,7 @@ export default function ChatWidget() {
                 <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-800 bg-gray-50 dark:bg-gray-950/30">
                     <div className="text-center py-4">
                         <p className="text-xs text-gray-400 dark:text-gray-500 flex items-center justify-center gap-1">
-                            <Sparkles size={12} /> Powered by Advanced AI
+                            <Sparkles size={12} /> Powered by Multi-Agent System
                         </p>
                     </div>
 
@@ -148,12 +166,25 @@ export default function ChatWidget() {
                                 }`}
                         >
                             <div
-                                className={`max-w-[80%] rounded-2xl p-3 shadow-sm ${message.role === "user"
+                                className={`max-w-[90%] rounded-2xl p-3 shadow-sm ${message.role === "user"
                                     ? "bg-blue-600 text-white rounded-br-none"
                                     : "bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-gray-800 dark:text-gray-100 rounded-bl-none"
                                     }`}
                             >
                                 <div className="text-sm leading-relaxed">{message.content}</div>
+
+                                {/* Dynamic Component Rendering */}
+                                {message.component && (
+                                    <div className="mt-4 p-2 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                                        {message.component}
+                                        <div className="mt-2 text-right">
+                                            <a href="/dashboard" target="_blank" className="text-xs text-blue-600 hover:underline flex items-center justify-end gap-1">
+                                                View Full Dashboard <Sparkles size={10} />
+                                            </a>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div
                                     className={`text-[10px] mt-1 opacity-70 ${message.role === "user" ? "text-blue-100" : "text-gray-400"
                                         }`}
@@ -186,7 +217,7 @@ export default function ChatWidget() {
                             type="text"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
-                            placeholder="Type your message..."
+                            placeholder="Ask about bookings, costs, or calls..."
                             className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all placeholder:text-gray-400"
                         />
                         <button

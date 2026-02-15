@@ -7,7 +7,10 @@ const anthropic = new Anthropic({
 export const getAction = async (messages: any[]) => {
   const systemPrompt = `You are an AI assistant that identifies the intent and necessary action from a user conversation. 
   Your goal is to analyze the user's request and determine the specific action that needs to be taken to fulfill it. 
-  Output ONLY the action description in a clear, concise manner. Do not include any other text or preamble.`;
+  
+  Rules:
+  1. If the user asks a question that requires data from the database (e.g., "how many", "show me", "list", "trend", "statistics"), the action MUST start with "Analyze data: ".
+  2. Output ONLY the action description.`;
 
   try {
     const response = await anthropic.messages.create({

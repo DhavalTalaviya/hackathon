@@ -1,7 +1,15 @@
 import { ArrowRight, Bot, Zap, Shield, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+import DashboardComponent from "@/components/generated/Dashboard";
+
+export default function Home({ searchParams }: { searchParams: { view?: string } }) {
+  const showDashboard = searchParams.view === 'dashboard';
+
+  if (showDashboard) {
+    return <DashboardComponent />;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100 font-[family-name:var(--font-geist-sans)]">
       {/* Navigation */}
