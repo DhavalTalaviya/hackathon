@@ -51,8 +51,6 @@ export default function ChatWidget() {
         setInputValue("");
         setIsTyping(true);
 
-        // Simulate AI response
-
         try {
             const response = await fetch('/api/chat', {
                 method: 'POST',
@@ -90,7 +88,7 @@ export default function ChatWidget() {
 
     return (
         <>
-            {/* Floating Action Button */}
+            {/* Floating Button */}
             <button
                 onClick={toggleChat}
                 className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center ${isOpen
