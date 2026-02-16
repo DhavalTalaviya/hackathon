@@ -1,29 +1,45 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import DashboardComponent from '@/components/generated/Dashboard';
 import { ArrowLeft } from 'lucide-react';
+import DashboardShell from '@/components/DashboardShell';
+import ChartPanel from '@/components/generated/ChartPanel';
 
 export default function DashboardPage() {
-    return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
-            <div className="max-w-7xl mx-auto space-y-8">
-                <header className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <Link
-                            href="/"
-                            className="p-2 bg-white dark:bg-gray-800 rounded-full shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                        >
-                            <ArrowLeft size={20} />
-                        </Link>
-                        <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-                            AI Analytics Dashboard
-                        </h1>
-                    </div>
-                </header>
+    const [data, setData] = useState<any[]>([]);
 
-                <main className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 min-h-[500px]">
-                    <DashboardComponent />
-                </main>
+    useEffect(() => {
+        // Dynamically load the data file
+        import('@/components/generated/dashboardData.json')
+            .then((mod) => setData(mod.default || []))
+            .catch(() => setData([]));
+    }, []);
+
+    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="absolute top-6 left-6 z-10">
+                <Link
+                    href="/"
+                    className="p-2 bg-white/10 backdrop-blur rounded-full shadow hover:bg-white/20 transition-colors inline-flex"
+                >
+                    <ArrowLeft size={20} className="text-white" />
+                </Link>
             </div>
+            <DashboardShell
+                data={data}
+                title="AI Analytics Dashboard"
+                subtitle="Comprehensive data breakdown and trend analysis"
+            >
+                {({ filteredData, allCategories, colors }) => (
+                    <ChartPanel
+                        data={filteredData}
+                        allCategories={allCategories}
+                        colors={colors}
+                    />
+                )}
+            </DashboardShell>
         </div>
     );
 }

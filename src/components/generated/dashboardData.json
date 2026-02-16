@@ -1,0 +1,13 @@
+[
+  {
+    "total_bookings": 5000,
+    "confirmed": 1619,
+    "cancelled": 1726,
+    "pending": 1655,
+    "unique_customers": 15,
+    "earliest_booking": "2025-01-01",
+    "latest_booking": "2026-01-01",
+    "confirmation_rate_pct": 32.38,
+    "cancellation_rate_pct": 34.52
+  }
+]

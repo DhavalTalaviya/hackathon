@@ -75,7 +75,7 @@ export default function ChatWidget() {
 
             const data = await response.json();
 
-            let componentNode = null;
+            const componentNode = null;
             if (data.dataviz && data.componentCode) {
                 // Update the view to show the dashboard on the same page
                 router.push('/?view=dashboard');

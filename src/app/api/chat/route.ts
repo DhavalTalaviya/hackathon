@@ -39,11 +39,11 @@ export async function POST(req: NextRequest) {
       }
 
       console.log('Routing to Code Writer...');
-      const code = await getDashboardCode(messages[messages.length - 1].content, analysisResult);
+      const { code, data } = await getDashboardCode(messages[messages.length - 1].content, analysisResult);
 
-      // Save the component to disk
+      // Save the chart panel component to disk
       try {
-        const componentPath = path.join(process.cwd(), 'src', 'components', 'generated', 'Dashboard.tsx');
+        const componentPath = path.join(process.cwd(), 'src', 'components', 'generated', 'ChartPanel.tsx');
         const componentDir = path.dirname(componentPath);
         
         if (!fs.existsSync(componentDir)) {
@@ -51,9 +51,14 @@ export async function POST(req: NextRequest) {
         }
 
         fs.writeFileSync(componentPath, code);
-        console.log(`Dashboard component saved to ${componentPath}`);
+        console.log(`ChartPanel component saved to ${componentPath}`);
+
+        // Save the data separately so the shell can load it
+        const dataPath = path.join(process.cwd(), 'src', 'components', 'generated', 'dashboardData.json');
+        fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+        console.log(`Dashboard data saved to ${dataPath}`);
       } catch (err) {
-        console.error('Error writing dashboard component:', err);
+        console.error('Error writing chart panel component:', err);
       }
       
       // Return a special structured response for the frontend to render the component
@@ -77,4 +82,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to fetch response' }, { status: 500 });
   }
 }
-

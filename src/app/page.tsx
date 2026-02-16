@@ -1,13 +1,10 @@
-import { ArrowRight, Bot, Zap, Shield, MessageSquare } from "lucide-react";
+import { Bot, Zap, Shield, MessageSquare } from "lucide-react";
 import Link from "next/link";
-
-import DashboardComponent from "@/components/generated/Dashboard";
+import { redirect } from "next/navigation";
 
 export default function Home({ searchParams }: { searchParams: { view?: string } }) {
-  const showDashboard = searchParams.view === 'dashboard';
-
-  if (showDashboard) {
-    return <DashboardComponent />;
+  if (searchParams.view === 'dashboard') {
+    redirect('/dashboard');
   }
 
   return (
