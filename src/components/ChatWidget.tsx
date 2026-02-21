@@ -31,6 +31,7 @@ export default function ChatWidget() {
         },
     ]);
     const [isTyping, setIsTyping] = useState(false);
+    const [loadingStep, setLoadingStep] = useState(0);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
@@ -39,7 +40,29 @@ export default function ChatWidget() {
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages, isOpen]);
+    }, [messages, isOpen, isTyping, loadingStep]);
+
+    // Simulated progress steps for long-running AI tasks
+    const loadingSteps = [
+        "Analyzing intent...",
+        "Querying database schema...",
+        "Generating SQL queries...",
+        "Executing analysis...",
+        "Building dashboard UI..."
+    ];
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (isTyping) {
+            setLoadingStep(0);
+            interval = setInterval(() => {
+                setLoadingStep((prev) => (prev < loadingSteps.length - 1 ? prev + 1 : prev));
+            }, 2500); // Progress to next step every 2.5 seconds
+        }
+        return () => {
+            if (interval) clearInterval(interval);
+        };
+    }, [isTyping]);
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
@@ -75,11 +98,21 @@ export default function ChatWidget() {
 
             const data = await response.json();
 
-            const componentNode = null;
             if (data.dataviz && data.componentCode) {
-                // Update the view to show the dashboard on the same page
-                router.push('/?view=dashboard');
-                return; // Stop processing further to avoid adding the message if we are leaving
+                // Return a friendly message before routing if needed
+                const aiMessage: Message = {
+                    id: (Date.now() + 1).toString(),
+                    role: "assistant",
+                    content: data.content || "Your dashboard is ready! Opening now...",
+                    timestamp: new Date(),
+                };
+                setMessages((prev) => [...prev, aiMessage]);
+
+                // Allow user to see the "success" message attached briefly before routing
+                setTimeout(() => {
+                    router.push('/?view=dashboard');
+                }, 1000);
+                return;
             }
 
             const aiMessage: Message = {
@@ -87,7 +120,6 @@ export default function ChatWidget() {
                 role: "assistant",
                 content: data.content || "Sorry, I couldn't understand that.",
                 timestamp: new Date(),
-                component: componentNode
             };
             setMessages((prev) => [...prev, aiMessage]);
         } catch (error) {
@@ -200,10 +232,16 @@ export default function ChatWidget() {
 
                     {isTyping && (
                         <div className="flex justify-start">
-                            <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-4 rounded-bl-none flex items-center gap-2 shadow-sm">
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                            <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-4 rounded-bl-none flex flex-col gap-2 shadow-sm min-w-[200px]">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                                </div>
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 animate-pulse flex items-center gap-2">
+                                    <Sparkles size={12} className="text-blue-400" />
+                                    {loadingSteps[loadingStep]}
+                                </div>
                             </div>
                         </div>
                     )}

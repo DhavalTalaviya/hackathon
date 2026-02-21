@@ -107,8 +107,8 @@ export const getDataAnalysis = async (query: string) => {
           chart.data = stmt.all();
           // We don't need to send the SQL to the frontend config
           delete chart.sql;
-        } catch (dbError: any) {
-          console.error(`Error executing SQL for chart ${chart.title}: ${chart.sql}`, dbError.message);
+        } catch (dbError) {
+          console.error(`Error executing SQL for chart ${chart.title}: ${chart.sql}`, (dbError as Error).message);
           chart.data = [];
           chart.error = "Error executing chart data query";
         }
@@ -127,7 +127,7 @@ export const getDataAnalysis = async (query: string) => {
             if (kpi.sql) {
                 try {
                     const stmt = db.prepare(kpi.sql);
-                    const row: any = stmt.get(); // get() returns the first row
+                    const row = stmt.get() as Record<string, unknown>; // get() returns the first row
                     if (row) {
                         // Get the first value from the returned object keys
                         const firstKey = Object.keys(row)[0];
@@ -136,8 +136,8 @@ export const getDataAnalysis = async (query: string) => {
                         kpi.value = 0;
                     }
                     delete kpi.sql;
-                } catch (dbError: any) {
-                    console.error(`Error executing SQL for KPI ${kpi.title}: ${kpi.sql}`, dbError.message);
+                } catch (dbError) {
+                    console.error(`Error executing SQL for KPI ${kpi.title}: ${kpi.sql}`, (dbError as Error).message);
                     kpi.value = "Error";
                 }
             } else {

@@ -20,7 +20,6 @@ export default function DashboardPage() {
                 setConfig(data as DashboardConfig);
             } catch (err) {
                 console.error("Failed to load config", err);
-                // @ts-ignore
                 setConfig({ charts: [], kpis: [] });
             }
         };

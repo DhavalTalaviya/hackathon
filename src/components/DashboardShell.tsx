@@ -7,9 +7,8 @@ import {
     TrendingUp,
     TrendingDown,
     Layers,
-    Activity,
     Users,
-    Box
+    Activity
 } from "lucide-react";
 import { DashboardConfig, KpiConfig } from "./dashboard/DynamicDashboard";
 
