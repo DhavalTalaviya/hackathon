@@ -22,7 +22,9 @@ export const getDataAnalysis = async (query: string) => {
   ${schema}
   
   Rules:
-  1. Generate up to 3 charts that answer the user query or provide a comprehensive dashboard.
+  1. DYNAMIC CHART VOLUME: You must evaluate the complexity of the user's query to determine how many charts to generate. 
+     - If it's a simple/specific question (e.g. "Show me bookings over time"), generate 1 or 2 highly targeted charts.
+     - If it's a broad/complex question (e.g. "Give me a full business health breakdown"), generate a comprehensive dashboard with 4 to 6 charts spanning different data domains.
   2. Generate 4 key performance indicators (KPIs) relevant to the query.
   3. For EACH chart and KPI, you MUST provide a specific valid SQLite query.
   4. Generate ONLY a valid JSON object. Do NOT include markdown blocks (\`\`\`json) or text explanations.
@@ -35,7 +37,7 @@ export const getDataAnalysis = async (query: string) => {
   {
     "charts": [
       {
-        "type": "BarChart" | "LineChart" | "PieChart" | "AreaChart" | "RadarChart" | "ComposedChart" | "ScatterChart",
+        "type": "BarChart" | "LineChart" | "PieChart" | "AreaChart" | "RadarChart" | "ComposedChart" | "ScatterChart" | "RadialBarChart" | "Treemap" | "FunnelChart",
         "title": "Clear concise chart title",
         "sql": "SELECT ... FROM ... ",
         "xAxisKey": "string (for Bar/Line/Area/Composed/Scatter)",
@@ -65,6 +67,13 @@ export const getDataAnalysis = async (query: string) => {
   - Time series (trends over days/months): LineChart or AreaChart (group by DATE).
   - Multi-variable comparison: RadarChart.
   - Correlation/Distribution: ScatterChart.
+  - Conversion stages/Dropoff: FunnelChart (set nameKey to stage, series[0].dataKey to value).
+  - Hierarchical part-to-whole (nested categories/spend): Treemap (set nameKey to category, series[0].dataKey to value).
+  - Goal progress/Circular ranking: RadialBarChart (set series[0].dataKey to value).
+
+  CRITICAL RULES FOR NEW CHARTS:
+  - For FunnelChart, Treemap, and RadialBarChart, you MUST set \`series[0].dataKey\` to the numeric value you want to visualize.
+  - For FunnelChart and Treemap, you MUST also set \`nameKey\` to the category or label column.
 
   CRITICAL: OUTPUT ONLY VALID JSON. NO MARKDOWN. NO CODE BLOCKS. ENSURE THE JSON IS FULLY CLOSED AT THE END.
   `; // End of prompt

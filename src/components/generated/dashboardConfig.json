@@ -1,10 +1,119 @@
 {
   "charts": [
     {
+      "type": "AreaChart",
+      "title": "Monthly Costs vs Booking Volume Trend",
+      "xAxisKey": "month",
+      "series": [
+        {
+          "dataKey": "total_cost",
+          "name": "Total Costs ($)",
+          "type": "area"
+        },
+        {
+          "dataKey": "total_bookings",
+          "name": "Bookings Count",
+          "type": "area"
+        }
+      ],
+      "data": [
+        {
+          "month": "2025-01",
+          "total_cost": 1076251,
+          "total_bookings": 439
+        },
+        {
+          "month": "2025-02",
+          "total_cost": 936310,
+          "total_bookings": 377
+        },
+        {
+          "month": "2025-03",
+          "total_cost": 906303,
+          "total_bookings": 427
+        },
+        {
+          "month": "2025-04",
+          "total_cost": 1053668,
+          "total_bookings": 364
+        },
+        {
+          "month": "2025-05",
+          "total_cost": 1014573,
+          "total_bookings": 424
+        },
+        {
+          "month": "2025-06",
+          "total_cost": 993195,
+          "total_bookings": 410
+        },
+        {
+          "month": "2025-07",
+          "total_cost": 1076125,
+          "total_bookings": 432
+        },
+        {
+          "month": "2025-08",
+          "total_cost": 1123526,
+          "total_bookings": 426
+        },
+        {
+          "month": "2025-09",
+          "total_cost": 1089809,
+          "total_bookings": 411
+        },
+        {
+          "month": "2025-10",
+          "total_cost": 1018384,
+          "total_bookings": 448
+        },
+        {
+          "month": "2025-11",
+          "total_cost": 1117610,
+          "total_bookings": 419
+        },
+        {
+          "month": "2025-12",
+          "total_cost": 1025995,
+          "total_bookings": 404
+        },
+        {
+          "month": "2026-01",
+          "total_cost": 37892,
+          "total_bookings": 19
+        }
+      ]
+    },
+    {
       "type": "PieChart",
-      "title": "Bookings by Status",
-      "dataKey": "count",
-      "nameKey": "category",
+      "title": "Cost Breakdown by Category",
+      "nameKey": "name",
+      "dataKey": "value",
+      "data": [
+        {
+          "name": "Software",
+          "value": 4285872
+        },
+        {
+          "name": "Infrastructure",
+          "value": 4162992
+        },
+        {
+          "name": "Marketing",
+          "value": 4020777
+        }
+      ]
+    },
+    {
+      "type": "BarChart",
+      "title": "Booking Status Distribution",
+      "xAxisKey": "category",
+      "series": [
+        {
+          "dataKey": "count",
+          "name": "Bookings"
+        }
+      ],
       "data": [
         {
           "category": "cancelled",
@@ -21,169 +130,166 @@
       ]
     },
     {
-      "type": "AreaChart",
-      "title": "Monthly Costs Trend",
+      "type": "ComposedChart",
+      "title": "Monthly Cost per Booking (Efficiency)",
       "xAxisKey": "month",
       "series": [
         {
           "dataKey": "total_cost",
-          "name": "Total Cost",
-          "type": "area"
-        }
-      ],
-      "data": [
-        {
-          "month": "2025-01",
-          "total_cost": 1076251
-        },
-        {
-          "month": "2025-02",
-          "total_cost": 936310
-        },
-        {
-          "month": "2025-03",
-          "total_cost": 906303
-        },
-        {
-          "month": "2025-04",
-          "total_cost": 1053668
-        },
-        {
-          "month": "2025-05",
-          "total_cost": 1014573
-        },
-        {
-          "month": "2025-06",
-          "total_cost": 993195
-        },
-        {
-          "month": "2025-07",
-          "total_cost": 1076125
-        },
-        {
-          "month": "2025-08",
-          "total_cost": 1123526
-        },
-        {
-          "month": "2025-09",
-          "total_cost": 1089809
-        },
-        {
-          "month": "2025-10",
-          "total_cost": 1018384
-        },
-        {
-          "month": "2025-11",
-          "total_cost": 1117610
-        },
-        {
-          "month": "2025-12",
-          "total_cost": 1025995
-        },
-        {
-          "month": "2026-01",
-          "total_cost": 37892
-        }
-      ]
-    },
-    {
-      "type": "ComposedChart",
-      "title": "Monthly Bookings vs Costs",
-      "xAxisKey": "month",
-      "series": [
-        {
-          "dataKey": "bookings",
-          "name": "Bookings",
+          "name": "Total Cost ($)",
           "type": "bar"
         },
         {
-          "dataKey": "costs",
-          "name": "Costs ($)",
+          "dataKey": "cost_per_booking",
+          "name": "Cost per Booking ($)",
           "type": "line"
         }
       ],
       "data": [
         {
           "month": "2025-01",
-          "bookings": 439,
-          "costs": 1076251
+          "total_cost": 1076251,
+          "total_bookings": 439,
+          "cost_per_booking": 2451.6
         },
         {
           "month": "2025-02",
-          "bookings": 377,
-          "costs": 936310
+          "total_cost": 936310,
+          "total_bookings": 377,
+          "cost_per_booking": 2483.58
         },
         {
           "month": "2025-03",
-          "bookings": 427,
-          "costs": 906303
+          "total_cost": 906303,
+          "total_bookings": 427,
+          "cost_per_booking": 2122.49
         },
         {
           "month": "2025-04",
-          "bookings": 364,
-          "costs": 1053668
+          "total_cost": 1053668,
+          "total_bookings": 364,
+          "cost_per_booking": 2894.69
         },
         {
           "month": "2025-05",
-          "bookings": 424,
-          "costs": 1014573
+          "total_cost": 1014573,
+          "total_bookings": 424,
+          "cost_per_booking": 2392.86
         },
         {
           "month": "2025-06",
-          "bookings": 410,
-          "costs": 993195
+          "total_cost": 993195,
+          "total_bookings": 410,
+          "cost_per_booking": 2422.43
         },
         {
           "month": "2025-07",
-          "bookings": 432,
-          "costs": 1076125
+          "total_cost": 1076125,
+          "total_bookings": 432,
+          "cost_per_booking": 2491.03
         },
         {
           "month": "2025-08",
-          "bookings": 426,
-          "costs": 1123526
+          "total_cost": 1123526,
+          "total_bookings": 426,
+          "cost_per_booking": 2637.38
         },
         {
           "month": "2025-09",
-          "bookings": 411,
-          "costs": 1089809
+          "total_cost": 1089809,
+          "total_bookings": 411,
+          "cost_per_booking": 2651.6
         },
         {
           "month": "2025-10",
-          "bookings": 448,
-          "costs": 1018384
+          "total_cost": 1018384,
+          "total_bookings": 448,
+          "cost_per_booking": 2273.18
         },
         {
           "month": "2025-11",
-          "bookings": 419,
-          "costs": 1117610
+          "total_cost": 1117610,
+          "total_bookings": 419,
+          "cost_per_booking": 2667.33
         },
         {
           "month": "2025-12",
-          "bookings": 404,
-          "costs": 1025995
+          "total_cost": 1025995,
+          "total_bookings": 404,
+          "cost_per_booking": 2539.59
         },
         {
           "month": "2026-01",
-          "bookings": 19,
-          "costs": 37892
+          "total_cost": 37892,
+          "total_bookings": 19,
+          "cost_per_booking": 1994.32
+        }
+      ]
+    },
+    {
+      "type": "FunnelChart",
+      "title": "Booking Funnel by Status",
+      "nameKey": "stage",
+      "series": [
+        {
+          "dataKey": "value",
+          "name": "Bookings"
+        }
+      ],
+      "data": [
+        {
+          "stage": "cancelled",
+          "value": 1726
+        },
+        {
+          "stage": "pending",
+          "value": 1655
+        },
+        {
+          "stage": "confirmed",
+          "value": 1619
+        }
+      ]
+    },
+    {
+      "type": "Treemap",
+      "title": "Cost Distribution Treemap",
+      "nameKey": "category",
+      "series": [
+        {
+          "dataKey": "value",
+          "name": "Cost Amount"
+        }
+      ],
+      "data": [
+        {
+          "category": "Software",
+          "value": 4285872
+        },
+        {
+          "category": "Infrastructure",
+          "value": 4162992
+        },
+        {
+          "category": "Marketing",
+          "value": 4020777
         }
       ]
     }
   ],
   "kpis": [
     {
+      "title": "Total Costs",
+      "prefix": "$",
+      "format": "compact",
+      "color": "rose",
+      "value": 12469641
+    },
+    {
       "title": "Total Bookings",
       "format": "number",
       "color": "indigo",
       "value": 5000
-    },
-    {
-      "title": "Total Costs",
-      "prefix": "$",
-      "format": "currency",
-      "color": "rose",
-      "value": 12469641
     },
     {
       "title": "Confirmed Bookings",
@@ -192,7 +298,7 @@
       "value": 1619
     },
     {
-      "title": "Avg Cost per Entry",
+      "title": "Avg Cost per Booking",
       "prefix": "$",
       "format": "currency",
       "color": "amber",

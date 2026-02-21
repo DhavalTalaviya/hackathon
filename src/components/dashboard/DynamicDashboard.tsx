@@ -25,10 +25,16 @@ import {
     Tooltip,
     Legend,
     ResponsiveContainer,
+    RadialBarChart,
+    RadialBar,
+    Treemap,
+    FunnelChart,
+    Funnel,
+    LabelList
 } from "recharts";
 
 export interface ChartConfig {
-    type: "BarChart" | "LineChart" | "PieChart" | "AreaChart" | "RadarChart" | "ComposedChart" | "ScatterChart";
+    type: "BarChart" | "LineChart" | "PieChart" | "AreaChart" | "RadarChart" | "ComposedChart" | "ScatterChart" | "RadialBarChart" | "Treemap" | "FunnelChart";
     title: string;
     dataKey?: string; // For PieChart
     nameKey?: string; // For PieChart/RadarChart
@@ -268,6 +274,55 @@ export default function DynamicDashboard({
                                 <Scatter key={s.dataKey} name={s.name || s.dataKey} data={chartData} fill={s.color || colors[(index + i) % colors.length]} />
                             ))}
                         </ScatterChart>
+                    </ResponsiveContainer>
+                );
+
+            case "RadialBarChart":
+                return (
+                    <ResponsiveContainer width="100%" height={300}>
+                        <RadialBarChart cx="50%" cy="50%" innerRadius="20%" outerRadius="100%" barSize={20} data={chartData}>
+                            <RadialBar
+                                label={{ position: 'insideStart', fill: '#fff' }}
+                                background={{ fill: '#374151' }}
+                                dataKey={chart.series?.[0]?.dataKey || "value"}
+                            />
+                            {chart.nameKey && <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={{ top: 0, left: 0 }} />}
+                            <Tooltip content={<CustomTooltip />} />
+                        </RadialBarChart>
+                    </ResponsiveContainer>
+                );
+
+            case "Treemap":
+                return (
+                    <ResponsiveContainer width="100%" height={300}>
+                        <Treemap
+                            data={chartData}
+                            dataKey={chart.series?.[0]?.dataKey || "value"}
+                            nameKey={chart.nameKey || "name"}
+                            aspectRatio={4 / 3}
+                            stroke="#1f2937"
+                        >
+                            <Tooltip content={<CustomTooltip />} />
+                        </Treemap>
+                    </ResponsiveContainer>
+                );
+
+            case "FunnelChart":
+                return (
+                    <ResponsiveContainer width="100%" height={300}>
+                        <FunnelChart>
+                            <Tooltip content={<CustomTooltip />} />
+                            <Funnel
+                                dataKey={chart.series?.[0]?.dataKey || "value"}
+                                data={chartData}
+                                isAnimationActive
+                            >
+                                <LabelList position="right" fill="#9CA3AF" stroke="none" dataKey={chart.nameKey || "name"} />
+                                {chartData.map((entry, idx) => (
+                                    <Cell key={`cell-${idx}`} fill={colors[idx % colors.length]} />
+                                ))}
+                            </Funnel>
+                        </FunnelChart>
                     </ResponsiveContainer>
                 );
 
