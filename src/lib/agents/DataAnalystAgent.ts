@@ -32,6 +32,7 @@ export const getDataAnalysis = async (query: string) => {
   6. DO NOT include "data" arrays in the JSON. The engine runs your SQL and injects the data automatically. Hallucinating data will hit token limits and crash.
   7. CRITICAL SQL AVOIDANCE: When using JOINs or UNIONs, you MUST qualify all column names in ORDER BY and GROUP BY clauses with their table alias (e.g., \`ORDER BY m.month\`, NOT \`ORDER BY month\`) to prevent ambiguous column name errors.
   8. For KPIs, the "sql" MUST return exactly one row and one column (e.g. \`SELECT COUNT(*) FROM bookings\`). Alternatively, you can return a pre-formatted string if it's simpler (e.g., \`SELECT '$' || SUM(amount) FROM costs\`).
+  9. GLOBAL FILTERING (CRITICAL): If the user prompt provides a "global constraint" or "global filter" (e.g., filtering for a specific date range, category, or status), you MUST forcefully append that restrictive \`WHERE\` clause to EVERY SINGLE SQL query you write across ALL charts and ALL KPIs to ensure the entire dashboard is accurately filtered.
 
   Schema for the JSON output:
   {
@@ -114,8 +115,7 @@ export const getDataAnalysis = async (query: string) => {
         try {
           const stmt = db.prepare(chart.sql);
           chart.data = stmt.all();
-          // We don't need to send the SQL to the frontend config
-          delete chart.sql;
+          // Keep chart.sql around for Phase 9 Local Filtering 
         } catch (dbError) {
           console.error(`Error executing SQL for chart ${chart.title}: ${chart.sql}`, (dbError as Error).message);
           chart.data = [];
@@ -144,7 +144,7 @@ export const getDataAnalysis = async (query: string) => {
                     } else {
                         kpi.value = 0;
                     }
-                    delete kpi.sql;
+                    // Keep kpi.sql around for Phase 9 Local Filtering
                 } catch (dbError) {
                     console.error(`Error executing SQL for KPI ${kpi.title}: ${kpi.sql}`, (dbError as Error).message);
                     kpi.value = "Error";

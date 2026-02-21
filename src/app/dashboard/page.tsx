@@ -48,6 +48,7 @@ export default function DashboardPage() {
                 config={config}
                 title="AI Analytics Dashboard"
                 subtitle="Comprehensive data breakdown and trend analysis"
+                onConfigUpdate={setConfig}
             >
                 {({ colors }) => (
                     <ChartPanel

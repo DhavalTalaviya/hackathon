@@ -8,7 +8,11 @@ import {
     TrendingDown,
     Layers,
     Users,
-    Activity
+    Activity,
+    Filter,
+    Calendar,
+    Tag,
+    Loader2
 } from "lucide-react";
 import { DashboardConfig, KpiConfig } from "./dashboard/DynamicDashboard";
 
@@ -16,6 +20,7 @@ interface DashboardShellProps {
     config: DashboardConfig;
     title?: string;
     subtitle?: string;
+    onConfigUpdate?: (config: DashboardConfig) => void;
     children: (props: { colors: string[] }) => React.ReactNode;
 }
 
@@ -28,6 +33,13 @@ const COLORS = [
     "#8b5cf6",
     "#ec4899",
     "#14b8a6",
+];
+
+const GLOBAL_FILTERS = [
+    { label: "All Time", query: "1=1" },
+    { label: "Last 30 Days", query: "date >= date('now', '-30 days')" },
+    { label: "Software Costs", query: "category = 'Software'" },
+    { label: "Confirmed Only", query: "status = 'confirmed'" },
 ];
 
 const getIcon = (color?: string) => {
@@ -72,17 +84,67 @@ export default function DashboardShell({
     config,
     title = "Analytics Dashboard",
     subtitle = "Comprehensive data breakdown and trend analysis",
+    onConfigUpdate,
     children,
 }: DashboardShellProps) {
+    const [activeFilter, setActiveFilter] = React.useState<string>("All Time");
+    const [isFiltering, setIsFiltering] = React.useState(false);
+
+    const handleFilterClick = async (filter: typeof GLOBAL_FILTERS[0]) => {
+        if (!onConfigUpdate) return;
+
+        setActiveFilter(filter.label);
+        setIsFiltering(true);
+
+        try {
+            const res = await fetch('/api/config/filter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filterContext: filter.query })
+            });
+
+            if (res.ok) {
+                const newConfig = await res.json();
+                onConfigUpdate(newConfig);
+            }
+        } catch (error) {
+            console.error("Filter error:", error);
+        } finally {
+            setIsFiltering(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white p-6">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+            {/* Header flexbox */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
                 <div>
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                         {title}
                     </h1>
                     <p className="text-gray-400 mt-1 text-sm">{subtitle}</p>
+                </div>
+
+                {/* Filter Bar */}
+                <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-800/50 rounded-lg border border-gray-700/50 mr-2">
+                        {isFiltering ? <Loader2 className="w-4 h-4 text-indigo-400 animate-spin" /> : <Filter className="w-4 h-4 text-gray-400" />}
+                        <span className="text-sm text-gray-400 font-medium">Local Filters:</span>
+                    </div>
+                    {GLOBAL_FILTERS.map((f) => (
+                        <button
+                            key={f.label}
+                            onClick={() => handleFilterClick(f)}
+                            className={`whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeFilter === f.label
+                                ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/50"
+                                : "bg-gray-800/40 text-gray-400 border border-gray-700/50 hover:bg-gray-700/50 hover:text-gray-200"
+                                }`}
+                        >
+                            {f.label.includes("Days") || f.label.includes("Time") ? <Calendar className="w-4 h-4" /> : <Tag className="w-4 h-4" />}
+                            {f.label}
+                        </button>
+                    ))}
                 </div>
             </div>
 

@@ -15,11 +15,16 @@ export default function ChartPanel({
 }: ChartPanelProps) {
   if (!config) return null;
 
+  const handleChartClick = (query: string) => {
+    window.dispatchEvent(new CustomEvent("trigger-chat", { detail: query }));
+  };
+
   return (
     <DynamicDashboard
       data={[]}
       config={config}
       colors={colors}
+      onChartClick={handleChartClick}
     />
   );
 }

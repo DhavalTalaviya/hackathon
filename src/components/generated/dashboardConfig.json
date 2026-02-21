@@ -1,308 +1,448 @@
 {
   "charts": [
     {
-      "type": "AreaChart",
-      "title": "Monthly Costs vs Booking Volume Trend",
-      "xAxisKey": "month",
+      "type": "BarChart",
+      "title": "Daily Call Volume in March 2025",
+      "sql": "SELECT strftime('%Y-%m-%d', c.date) AS day, COUNT(*) AS call_count FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY day ORDER BY day",
+      "xAxisKey": "day",
       "series": [
         {
-          "dataKey": "total_cost",
-          "name": "Total Costs ($)",
-          "type": "area"
-        },
-        {
-          "dataKey": "total_bookings",
-          "name": "Bookings Count",
-          "type": "area"
+          "dataKey": "call_count",
+          "name": "Calls"
         }
       ],
       "data": [
         {
-          "month": "2025-01",
-          "total_cost": 1076251,
-          "total_bookings": 439
+          "day": "2025-03-01",
+          "call_count": 16
         },
         {
-          "month": "2025-02",
-          "total_cost": 936310,
-          "total_bookings": 377
+          "day": "2025-03-02",
+          "call_count": 17
         },
         {
-          "month": "2025-03",
-          "total_cost": 906303,
-          "total_bookings": 427
+          "day": "2025-03-03",
+          "call_count": 11
         },
         {
-          "month": "2025-04",
-          "total_cost": 1053668,
-          "total_bookings": 364
+          "day": "2025-03-04",
+          "call_count": 14
         },
         {
-          "month": "2025-05",
-          "total_cost": 1014573,
-          "total_bookings": 424
+          "day": "2025-03-05",
+          "call_count": 15
         },
         {
-          "month": "2025-06",
-          "total_cost": 993195,
-          "total_bookings": 410
+          "day": "2025-03-06",
+          "call_count": 21
         },
         {
-          "month": "2025-07",
-          "total_cost": 1076125,
-          "total_bookings": 432
+          "day": "2025-03-07",
+          "call_count": 15
         },
         {
-          "month": "2025-08",
-          "total_cost": 1123526,
-          "total_bookings": 426
+          "day": "2025-03-08",
+          "call_count": 12
         },
         {
-          "month": "2025-09",
-          "total_cost": 1089809,
-          "total_bookings": 411
+          "day": "2025-03-09",
+          "call_count": 13
         },
         {
-          "month": "2025-10",
-          "total_cost": 1018384,
-          "total_bookings": 448
+          "day": "2025-03-10",
+          "call_count": 16
         },
         {
-          "month": "2025-11",
-          "total_cost": 1117610,
-          "total_bookings": 419
+          "day": "2025-03-11",
+          "call_count": 12
         },
         {
-          "month": "2025-12",
-          "total_cost": 1025995,
-          "total_bookings": 404
+          "day": "2025-03-12",
+          "call_count": 17
         },
         {
-          "month": "2026-01",
-          "total_cost": 37892,
-          "total_bookings": 19
+          "day": "2025-03-13",
+          "call_count": 14
+        },
+        {
+          "day": "2025-03-14",
+          "call_count": 13
+        },
+        {
+          "day": "2025-03-15",
+          "call_count": 10
+        },
+        {
+          "day": "2025-03-16",
+          "call_count": 14
+        },
+        {
+          "day": "2025-03-17",
+          "call_count": 12
+        },
+        {
+          "day": "2025-03-18",
+          "call_count": 14
+        },
+        {
+          "day": "2025-03-19",
+          "call_count": 9
+        },
+        {
+          "day": "2025-03-20",
+          "call_count": 10
+        },
+        {
+          "day": "2025-03-21",
+          "call_count": 12
+        },
+        {
+          "day": "2025-03-22",
+          "call_count": 17
+        },
+        {
+          "day": "2025-03-23",
+          "call_count": 12
+        },
+        {
+          "day": "2025-03-24",
+          "call_count": 12
+        },
+        {
+          "day": "2025-03-25",
+          "call_count": 14
+        },
+        {
+          "day": "2025-03-26",
+          "call_count": 13
+        },
+        {
+          "day": "2025-03-27",
+          "call_count": 18
+        },
+        {
+          "day": "2025-03-28",
+          "call_count": 14
+        },
+        {
+          "day": "2025-03-29",
+          "call_count": 17
+        },
+        {
+          "day": "2025-03-30",
+          "call_count": 18
+        },
+        {
+          "day": "2025-03-31",
+          "call_count": 12
+        }
+      ]
+    },
+    {
+      "type": "LineChart",
+      "title": "Daily Average Call Duration in March 2025 (seconds)",
+      "sql": "SELECT strftime('%Y-%m-%d', c.date) AS day, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY day ORDER BY day",
+      "xAxisKey": "day",
+      "series": [
+        {
+          "dataKey": "avg_duration",
+          "name": "Avg Duration (s)"
+        }
+      ],
+      "data": [
+        {
+          "day": "2025-03-01",
+          "avg_duration": 1341.8
+        },
+        {
+          "day": "2025-03-02",
+          "avg_duration": 1911
+        },
+        {
+          "day": "2025-03-03",
+          "avg_duration": 1802
+        },
+        {
+          "day": "2025-03-04",
+          "avg_duration": 2058.6
+        },
+        {
+          "day": "2025-03-05",
+          "avg_duration": 1884.3
+        },
+        {
+          "day": "2025-03-06",
+          "avg_duration": 1508.1
+        },
+        {
+          "day": "2025-03-07",
+          "avg_duration": 1934.1
+        },
+        {
+          "day": "2025-03-08",
+          "avg_duration": 1660.3
+        },
+        {
+          "day": "2025-03-09",
+          "avg_duration": 1576.8
+        },
+        {
+          "day": "2025-03-10",
+          "avg_duration": 1869.6
+        },
+        {
+          "day": "2025-03-11",
+          "avg_duration": 1770.3
+        },
+        {
+          "day": "2025-03-12",
+          "avg_duration": 1912.5
+        },
+        {
+          "day": "2025-03-13",
+          "avg_duration": 1439.3
+        },
+        {
+          "day": "2025-03-14",
+          "avg_duration": 1848
+        },
+        {
+          "day": "2025-03-15",
+          "avg_duration": 2002
+        },
+        {
+          "day": "2025-03-16",
+          "avg_duration": 1710.8
+        },
+        {
+          "day": "2025-03-17",
+          "avg_duration": 2136
+        },
+        {
+          "day": "2025-03-18",
+          "avg_duration": 1543.6
+        },
+        {
+          "day": "2025-03-19",
+          "avg_duration": 2052.4
+        },
+        {
+          "day": "2025-03-20",
+          "avg_duration": 1619.3
+        },
+        {
+          "day": "2025-03-21",
+          "avg_duration": 1403.1
+        },
+        {
+          "day": "2025-03-22",
+          "avg_duration": 1823.9
+        },
+        {
+          "day": "2025-03-23",
+          "avg_duration": 2284.8
+        },
+        {
+          "day": "2025-03-24",
+          "avg_duration": 1871.5
+        },
+        {
+          "day": "2025-03-25",
+          "avg_duration": 1703.1
+        },
+        {
+          "day": "2025-03-26",
+          "avg_duration": 1963.3
+        },
+        {
+          "day": "2025-03-27",
+          "avg_duration": 1294.1
+        },
+        {
+          "day": "2025-03-28",
+          "avg_duration": 2117
+        },
+        {
+          "day": "2025-03-29",
+          "avg_duration": 1512.8
+        },
+        {
+          "day": "2025-03-30",
+          "avg_duration": 1564.8
+        },
+        {
+          "day": "2025-03-31",
+          "avg_duration": 2212.4
         }
       ]
     },
     {
       "type": "PieChart",
-      "title": "Cost Breakdown by Category",
-      "nameKey": "name",
-      "dataKey": "value",
-      "data": [
-        {
-          "name": "Software",
-          "value": 4285872
-        },
-        {
-          "name": "Infrastructure",
-          "value": 4162992
-        },
-        {
-          "name": "Marketing",
-          "value": 4020777
-        }
-      ]
-    },
-    {
-      "type": "BarChart",
-      "title": "Booking Status Distribution",
-      "xAxisKey": "category",
+      "title": "Call Type Distribution in March 2025",
+      "sql": "SELECT c.type AS call_type, COUNT(*) AS volume FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY c.type ORDER BY volume DESC",
+      "nameKey": "call_type",
+      "dataKey": "volume",
       "series": [
         {
-          "dataKey": "count",
-          "name": "Bookings"
+          "dataKey": "volume",
+          "name": "Volume"
         }
       ],
       "data": [
         {
-          "category": "cancelled",
-          "count": 1726
+          "call_type": "incoming",
+          "volume": 220
         },
         {
-          "category": "pending",
-          "count": 1655
-        },
-        {
-          "category": "confirmed",
-          "count": 1619
+          "call_type": "outgoing",
+          "volume": 214
         }
       ]
     },
     {
       "type": "ComposedChart",
-      "title": "Monthly Cost per Booking (Efficiency)",
-      "xAxisKey": "month",
+      "title": "Call Volume vs Avg Duration by Call Type (March 2025)",
+      "sql": "SELECT c.type AS call_type, COUNT(*) AS call_count, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY c.type ORDER BY call_count DESC",
+      "xAxisKey": "call_type",
       "series": [
         {
-          "dataKey": "total_cost",
-          "name": "Total Cost ($)",
+          "dataKey": "call_count",
+          "name": "Call Count",
           "type": "bar"
         },
         {
-          "dataKey": "cost_per_booking",
-          "name": "Cost per Booking ($)",
+          "dataKey": "avg_duration",
+          "name": "Avg Duration (s)",
           "type": "line"
         }
       ],
       "data": [
         {
-          "month": "2025-01",
-          "total_cost": 1076251,
-          "total_bookings": 439,
-          "cost_per_booking": 2451.6
+          "call_type": "incoming",
+          "call_count": 220,
+          "avg_duration": 1729.2
         },
         {
-          "month": "2025-02",
-          "total_cost": 936310,
-          "total_bookings": 377,
-          "cost_per_booking": 2483.58
+          "call_type": "outgoing",
+          "call_count": 214,
+          "avg_duration": 1802.5
+        }
+      ]
+    },
+    {
+      "type": "BarChart",
+      "title": "Call Volume by Day of Week (March 2025)",
+      "sql": "SELECT CASE CAST(strftime('%w', c.date) AS INTEGER) WHEN 0 THEN '7-Sun' WHEN 1 THEN '1-Mon' WHEN 2 THEN '2-Tue' WHEN 3 THEN '3-Wed' WHEN 4 THEN '4-Thu' WHEN 5 THEN '5-Fri' WHEN 6 THEN '6-Sat' END AS weekday, COUNT(*) AS call_count, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY weekday ORDER BY weekday",
+      "xAxisKey": "weekday",
+      "series": [
+        {
+          "dataKey": "call_count",
+          "name": "Call Count"
+        }
+      ],
+      "data": [
+        {
+          "weekday": "1-Mon",
+          "call_count": 63,
+          "avg_duration": 1974.2
         },
         {
-          "month": "2025-03",
-          "total_cost": 906303,
-          "total_bookings": 427,
-          "cost_per_booking": 2122.49
+          "weekday": "2-Tue",
+          "call_count": 54,
+          "avg_duration": 1768.8
         },
         {
-          "month": "2025-04",
-          "total_cost": 1053668,
-          "total_bookings": 364,
-          "cost_per_booking": 2894.69
+          "weekday": "3-Wed",
+          "call_count": 54,
+          "avg_duration": 1940.2
         },
         {
-          "month": "2025-05",
-          "total_cost": 1014573,
-          "total_bookings": 424,
-          "cost_per_booking": 2392.86
+          "weekday": "4-Thu",
+          "call_count": 63,
+          "avg_duration": 1449.3
         },
         {
-          "month": "2025-06",
-          "total_cost": 993195,
-          "total_bookings": 410,
-          "cost_per_booking": 2422.43
+          "weekday": "5-Fri",
+          "call_count": 54,
+          "avg_duration": 1842.8
         },
         {
-          "month": "2025-07",
-          "total_cost": 1076125,
-          "total_bookings": 432,
-          "cost_per_booking": 2491.03
+          "weekday": "6-Sat",
+          "call_count": 72,
+          "avg_duration": 1640.8
         },
         {
-          "month": "2025-08",
-          "total_cost": 1123526,
-          "total_bookings": 426,
-          "cost_per_booking": 2637.38
-        },
-        {
-          "month": "2025-09",
-          "total_cost": 1089809,
-          "total_bookings": 411,
-          "cost_per_booking": 2651.6
-        },
-        {
-          "month": "2025-10",
-          "total_cost": 1018384,
-          "total_bookings": 448,
-          "cost_per_booking": 2273.18
-        },
-        {
-          "month": "2025-11",
-          "total_cost": 1117610,
-          "total_bookings": 419,
-          "cost_per_booking": 2667.33
-        },
-        {
-          "month": "2025-12",
-          "total_cost": 1025995,
-          "total_bookings": 404,
-          "cost_per_booking": 2539.59
-        },
-        {
-          "month": "2026-01",
-          "total_cost": 37892,
-          "total_bookings": 19,
-          "cost_per_booking": 1994.32
+          "weekday": "7-Sun",
+          "call_count": 74,
+          "avg_duration": 1790.8
         }
       ]
     },
     {
       "type": "FunnelChart",
-      "title": "Booking Funnel by Status",
-      "nameKey": "stage",
+      "title": "Top 5 Callers by Volume (March 2025)",
+      "sql": "SELECT c.\"from\" AS caller, COUNT(*) AS volume FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY c.\"from\" ORDER BY volume DESC LIMIT 5",
+      "nameKey": "caller",
       "series": [
         {
-          "dataKey": "value",
-          "name": "Bookings"
+          "dataKey": "volume",
+          "name": "Calls"
         }
       ],
       "data": [
         {
-          "stage": "cancelled",
-          "value": 1726
+          "caller": "+1-555-8441",
+          "volume": 3
         },
         {
-          "stage": "pending",
-          "value": 1655
+          "caller": "+1-555-9896",
+          "volume": 2
         },
         {
-          "stage": "confirmed",
-          "value": 1619
-        }
-      ]
-    },
-    {
-      "type": "Treemap",
-      "title": "Cost Distribution Treemap",
-      "nameKey": "category",
-      "series": [
-        {
-          "dataKey": "value",
-          "name": "Cost Amount"
-        }
-      ],
-      "data": [
-        {
-          "category": "Software",
-          "value": 4285872
+          "caller": "+1-555-9561",
+          "volume": 2
         },
         {
-          "category": "Infrastructure",
-          "value": 4162992
+          "caller": "+1-555-9095",
+          "volume": 2
         },
         {
-          "category": "Marketing",
-          "value": 4020777
+          "caller": "+1-555-8435",
+          "volume": 2
         }
       ]
     }
   ],
   "kpis": [
     {
-      "title": "Total Costs",
-      "prefix": "$",
-      "format": "compact",
-      "color": "rose",
-      "value": 12469641
-    },
-    {
-      "title": "Total Bookings",
+      "title": "Total Calls (Mar 2025)",
+      "sql": "SELECT COUNT(*) FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
       "format": "number",
       "color": "indigo",
-      "value": 5000
+      "value": 434
     },
     {
-      "title": "Confirmed Bookings",
+      "title": "Avg Duration (Mar 2025)",
+      "sql": "SELECT ROUND(AVG(duration), 1) FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
+      "suffix": "s",
+      "format": "number",
+      "color": "cyan",
+      "value": 1765.3
+    },
+    {
+      "title": "Total Call Minutes",
+      "sql": "SELECT ROUND(SUM(duration) / 60.0, 1) FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
+      "suffix": " min",
       "format": "number",
       "color": "emerald",
-      "value": 1619
+      "value": 12769
     },
     {
-      "title": "Avg Cost per Booking",
-      "prefix": "$",
-      "format": "currency",
+      "title": "Unique Callers",
+      "sql": "SELECT COUNT(DISTINCT \"from\") FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
+      "format": "number",
       "color": "amber",
-      "value": 2493.93
+      "value": 425
     }
   ]
 }

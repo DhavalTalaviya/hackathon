@@ -68,14 +68,17 @@ export default function ChatWidget() {
         setIsOpen(!isOpen);
     };
 
-    const handleSendMessage = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!inputValue.trim()) return;
+    const sendQuery = async (queryText: string) => {
+        if (!queryText.trim()) return;
+
+        if (!isOpen) {
+            setIsOpen(true);
+        }
 
         const userMessage: Message = {
             id: Date.now().toString(),
             role: "user",
-            content: inputValue,
+            content: queryText,
             timestamp: new Date(),
         };
 
@@ -135,6 +138,21 @@ export default function ChatWidget() {
             setIsTyping(false);
         }
     };
+
+    const handleSendMessage = async (e: React.FormEvent) => {
+        e.preventDefault();
+        await sendQuery(inputValue);
+    };
+
+    useEffect(() => {
+        const handleTriggerChat = (e: Event) => {
+            const customEvent = e as CustomEvent<string>;
+            sendQuery(customEvent.detail);
+        };
+
+        window.addEventListener("trigger-chat", handleTriggerChat);
+        return () => window.removeEventListener("trigger-chat", handleTriggerChat);
+    }, [messages, isOpen]);
 
     return (
         <>
