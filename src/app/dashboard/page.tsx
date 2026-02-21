@@ -8,6 +8,7 @@ import DashboardShell from '@/components/DashboardShell';
 import ChartPanel from '@/components/generated/ChartPanel';
 
 import { DashboardConfig } from '@/components/dashboard/DynamicDashboard';
+import DashboardHistorySidebar from '@/components/dashboard/DashboardHistorySidebar';
 
 export default function DashboardPage() {
     const [config, setConfig] = useState<DashboardConfig | null>(null);
@@ -35,28 +36,33 @@ export default function DashboardPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-            <div className="absolute top-6 left-6 z-10">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex relative overflow-hidden">
+            <div className="absolute top-6 left-6 z-10 print:hidden">
                 <Link
                     href="/"
                     className="p-2 bg-white/10 backdrop-blur rounded-full shadow hover:bg-white/20 transition-colors inline-flex"
                 >
-                    <ArrowLeft size={20} className="text-white" />
+                    <ArrowLeft size={20} className="text-gray-900 dark:text-white" />
                 </Link>
             </div>
-            <DashboardShell
-                config={config}
-                title="AI Analytics Dashboard"
-                subtitle="Comprehensive data breakdown and trend analysis"
-                onConfigUpdate={setConfig}
-            >
-                {({ colors }) => (
-                    <ChartPanel
-                        config={config}
-                        colors={colors}
-                    />
-                )}
-            </DashboardShell>
+
+            <div className="flex-1 w-full overflow-y-auto">
+                <DashboardShell
+                    config={config}
+                    title="AI Analytics Dashboard"
+                    subtitle="Comprehensive data breakdown and trend analysis"
+                    onConfigUpdate={setConfig}
+                >
+                    {({ colors }) => (
+                        <ChartPanel
+                            config={config}
+                            colors={colors}
+                        />
+                    )}
+                </DashboardShell>
+            </div>
+
+            <DashboardHistorySidebar onSelect={setConfig} />
         </div>
     );
 }

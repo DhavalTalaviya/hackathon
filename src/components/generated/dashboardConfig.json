@@ -1,448 +1,2086 @@
 {
   "charts": [
     {
-      "type": "BarChart",
-      "title": "Daily Call Volume in March 2025",
-      "sql": "SELECT strftime('%Y-%m-%d', c.date) AS day, COUNT(*) AS call_count FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY day ORDER BY day",
-      "xAxisKey": "day",
-      "series": [
-        {
-          "dataKey": "call_count",
-          "name": "Calls"
-        }
-      ],
-      "data": [
-        {
-          "day": "2025-03-01",
-          "call_count": 16
-        },
-        {
-          "day": "2025-03-02",
-          "call_count": 17
-        },
-        {
-          "day": "2025-03-03",
-          "call_count": 11
-        },
-        {
-          "day": "2025-03-04",
-          "call_count": 14
-        },
-        {
-          "day": "2025-03-05",
-          "call_count": 15
-        },
-        {
-          "day": "2025-03-06",
-          "call_count": 21
-        },
-        {
-          "day": "2025-03-07",
-          "call_count": 15
-        },
-        {
-          "day": "2025-03-08",
-          "call_count": 12
-        },
-        {
-          "day": "2025-03-09",
-          "call_count": 13
-        },
-        {
-          "day": "2025-03-10",
-          "call_count": 16
-        },
-        {
-          "day": "2025-03-11",
-          "call_count": 12
-        },
-        {
-          "day": "2025-03-12",
-          "call_count": 17
-        },
-        {
-          "day": "2025-03-13",
-          "call_count": 14
-        },
-        {
-          "day": "2025-03-14",
-          "call_count": 13
-        },
-        {
-          "day": "2025-03-15",
-          "call_count": 10
-        },
-        {
-          "day": "2025-03-16",
-          "call_count": 14
-        },
-        {
-          "day": "2025-03-17",
-          "call_count": 12
-        },
-        {
-          "day": "2025-03-18",
-          "call_count": 14
-        },
-        {
-          "day": "2025-03-19",
-          "call_count": 9
-        },
-        {
-          "day": "2025-03-20",
-          "call_count": 10
-        },
-        {
-          "day": "2025-03-21",
-          "call_count": 12
-        },
-        {
-          "day": "2025-03-22",
-          "call_count": 17
-        },
-        {
-          "day": "2025-03-23",
-          "call_count": 12
-        },
-        {
-          "day": "2025-03-24",
-          "call_count": 12
-        },
-        {
-          "day": "2025-03-25",
-          "call_count": 14
-        },
-        {
-          "day": "2025-03-26",
-          "call_count": 13
-        },
-        {
-          "day": "2025-03-27",
-          "call_count": 18
-        },
-        {
-          "day": "2025-03-28",
-          "call_count": 14
-        },
-        {
-          "day": "2025-03-29",
-          "call_count": 17
-        },
-        {
-          "day": "2025-03-30",
-          "call_count": 18
-        },
-        {
-          "day": "2025-03-31",
-          "call_count": 12
-        }
-      ]
-    },
-    {
-      "type": "LineChart",
-      "title": "Daily Average Call Duration in March 2025 (seconds)",
-      "sql": "SELECT strftime('%Y-%m-%d', c.date) AS day, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY day ORDER BY day",
-      "xAxisKey": "day",
-      "series": [
-        {
-          "dataKey": "avg_duration",
-          "name": "Avg Duration (s)"
-        }
-      ],
-      "data": [
-        {
-          "day": "2025-03-01",
-          "avg_duration": 1341.8
-        },
-        {
-          "day": "2025-03-02",
-          "avg_duration": 1911
-        },
-        {
-          "day": "2025-03-03",
-          "avg_duration": 1802
-        },
-        {
-          "day": "2025-03-04",
-          "avg_duration": 2058.6
-        },
-        {
-          "day": "2025-03-05",
-          "avg_duration": 1884.3
-        },
-        {
-          "day": "2025-03-06",
-          "avg_duration": 1508.1
-        },
-        {
-          "day": "2025-03-07",
-          "avg_duration": 1934.1
-        },
-        {
-          "day": "2025-03-08",
-          "avg_duration": 1660.3
-        },
-        {
-          "day": "2025-03-09",
-          "avg_duration": 1576.8
-        },
-        {
-          "day": "2025-03-10",
-          "avg_duration": 1869.6
-        },
-        {
-          "day": "2025-03-11",
-          "avg_duration": 1770.3
-        },
-        {
-          "day": "2025-03-12",
-          "avg_duration": 1912.5
-        },
-        {
-          "day": "2025-03-13",
-          "avg_duration": 1439.3
-        },
-        {
-          "day": "2025-03-14",
-          "avg_duration": 1848
-        },
-        {
-          "day": "2025-03-15",
-          "avg_duration": 2002
-        },
-        {
-          "day": "2025-03-16",
-          "avg_duration": 1710.8
-        },
-        {
-          "day": "2025-03-17",
-          "avg_duration": 2136
-        },
-        {
-          "day": "2025-03-18",
-          "avg_duration": 1543.6
-        },
-        {
-          "day": "2025-03-19",
-          "avg_duration": 2052.4
-        },
-        {
-          "day": "2025-03-20",
-          "avg_duration": 1619.3
-        },
-        {
-          "day": "2025-03-21",
-          "avg_duration": 1403.1
-        },
-        {
-          "day": "2025-03-22",
-          "avg_duration": 1823.9
-        },
-        {
-          "day": "2025-03-23",
-          "avg_duration": 2284.8
-        },
-        {
-          "day": "2025-03-24",
-          "avg_duration": 1871.5
-        },
-        {
-          "day": "2025-03-25",
-          "avg_duration": 1703.1
-        },
-        {
-          "day": "2025-03-26",
-          "avg_duration": 1963.3
-        },
-        {
-          "day": "2025-03-27",
-          "avg_duration": 1294.1
-        },
-        {
-          "day": "2025-03-28",
-          "avg_duration": 2117
-        },
-        {
-          "day": "2025-03-29",
-          "avg_duration": 1512.8
-        },
-        {
-          "day": "2025-03-30",
-          "avg_duration": 1564.8
-        },
-        {
-          "day": "2025-03-31",
-          "avg_duration": 2212.4
-        }
-      ]
-    },
-    {
-      "type": "PieChart",
-      "title": "Call Type Distribution in March 2025",
-      "sql": "SELECT c.type AS call_type, COUNT(*) AS volume FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY c.type ORDER BY volume DESC",
-      "nameKey": "call_type",
-      "dataKey": "volume",
-      "series": [
-        {
-          "dataKey": "volume",
-          "name": "Volume"
-        }
-      ],
-      "data": [
-        {
-          "call_type": "incoming",
-          "volume": 220
-        },
-        {
-          "call_type": "outgoing",
-          "volume": 214
-        }
-      ]
-    },
-    {
       "type": "ComposedChart",
-      "title": "Call Volume vs Avg Duration by Call Type (March 2025)",
-      "sql": "SELECT c.type AS call_type, COUNT(*) AS call_count, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY c.type ORDER BY call_count DESC",
-      "xAxisKey": "call_type",
+      "title": "Monthly Costs vs Bookings Over Time",
+      "sql": "SELECT m.month, COALESCE(c.total_cost, 0) AS total_cost, COALESCE(b.total_bookings, 0) AS total_bookings FROM (SELECT DISTINCT strftime('%Y-%m', date) AS month FROM costs UNION SELECT DISTINCT strftime('%Y-%m', date) AS month FROM bookings) m LEFT JOIN (SELECT strftime('%Y-%m', date) AS month, SUM(amount) AS total_cost FROM costs GROUP BY strftime('%Y-%m', date)) c ON m.month = c.month LEFT JOIN (SELECT strftime('%Y-%m', date) AS month, COUNT(*) AS total_bookings FROM bookings GROUP BY strftime('%Y-%m', date)) b ON m.month = b.month ORDER BY m.month",
+      "xAxisKey": "month",
       "series": [
         {
-          "dataKey": "call_count",
-          "name": "Call Count",
+          "dataKey": "total_cost",
+          "name": "Total Costs ($)",
           "type": "bar"
         },
         {
-          "dataKey": "avg_duration",
-          "name": "Avg Duration (s)",
+          "dataKey": "total_bookings",
+          "name": "Total Bookings",
           "type": "line"
         }
       ],
       "data": [
         {
-          "call_type": "incoming",
-          "call_count": 220,
-          "avg_duration": 1729.2
+          "month": "2025-01",
+          "total_cost": 1076251,
+          "total_bookings": 439
         },
         {
-          "call_type": "outgoing",
-          "call_count": 214,
-          "avg_duration": 1802.5
+          "month": "2025-02",
+          "total_cost": 936310,
+          "total_bookings": 377
+        },
+        {
+          "month": "2025-03",
+          "total_cost": 906303,
+          "total_bookings": 427
+        },
+        {
+          "month": "2025-04",
+          "total_cost": 1053668,
+          "total_bookings": 364
+        },
+        {
+          "month": "2025-05",
+          "total_cost": 1014573,
+          "total_bookings": 424
+        },
+        {
+          "month": "2025-06",
+          "total_cost": 993195,
+          "total_bookings": 410
+        },
+        {
+          "month": "2025-07",
+          "total_cost": 1076125,
+          "total_bookings": 432
+        },
+        {
+          "month": "2025-08",
+          "total_cost": 1123526,
+          "total_bookings": 426
+        },
+        {
+          "month": "2025-09",
+          "total_cost": 1089809,
+          "total_bookings": 411
+        },
+        {
+          "month": "2025-10",
+          "total_cost": 1018384,
+          "total_bookings": 448
+        },
+        {
+          "month": "2025-11",
+          "total_cost": 1117610,
+          "total_bookings": 419
+        },
+        {
+          "month": "2025-12",
+          "total_cost": 1025995,
+          "total_bookings": 404
+        },
+        {
+          "month": "2026-01",
+          "total_cost": 37892,
+          "total_bookings": 19
         }
       ]
     },
     {
       "type": "BarChart",
-      "title": "Call Volume by Day of Week (March 2025)",
-      "sql": "SELECT CASE CAST(strftime('%w', c.date) AS INTEGER) WHEN 0 THEN '7-Sun' WHEN 1 THEN '1-Mon' WHEN 2 THEN '2-Tue' WHEN 3 THEN '3-Wed' WHEN 4 THEN '4-Thu' WHEN 5 THEN '5-Fri' WHEN 6 THEN '6-Sat' END AS weekday, COUNT(*) AS call_count, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY weekday ORDER BY weekday",
-      "xAxisKey": "weekday",
+      "title": "Cost per Booking by Month",
+      "sql": "SELECT m.month, CASE WHEN COALESCE(b.total_bookings, 0) = 0 THEN 0 ELSE ROUND(COALESCE(c.total_cost, 0) * 1.0 / b.total_bookings, 2) END AS cost_per_booking FROM (SELECT DISTINCT strftime('%Y-%m', date) AS month FROM costs UNION SELECT DISTINCT strftime('%Y-%m', date) AS month FROM bookings) m LEFT JOIN (SELECT strftime('%Y-%m', date) AS month, SUM(amount) AS total_cost FROM costs GROUP BY strftime('%Y-%m', date)) c ON m.month = c.month LEFT JOIN (SELECT strftime('%Y-%m', date) AS month, COUNT(*) AS total_bookings FROM bookings GROUP BY strftime('%Y-%m', date)) b ON m.month = b.month WHERE COALESCE(b.total_bookings, 0) > 0 ORDER BY m.month",
+      "xAxisKey": "month",
       "series": [
         {
-          "dataKey": "call_count",
-          "name": "Call Count"
+          "dataKey": "cost_per_booking",
+          "name": "Cost per Booking ($)"
         }
       ],
       "data": [
         {
-          "weekday": "1-Mon",
-          "call_count": 63,
-          "avg_duration": 1974.2
+          "month": "2025-01",
+          "cost_per_booking": 2451.6
         },
         {
-          "weekday": "2-Tue",
-          "call_count": 54,
-          "avg_duration": 1768.8
+          "month": "2025-02",
+          "cost_per_booking": 2483.58
         },
         {
-          "weekday": "3-Wed",
-          "call_count": 54,
-          "avg_duration": 1940.2
+          "month": "2025-03",
+          "cost_per_booking": 2122.49
         },
         {
-          "weekday": "4-Thu",
-          "call_count": 63,
-          "avg_duration": 1449.3
+          "month": "2025-04",
+          "cost_per_booking": 2894.69
         },
         {
-          "weekday": "5-Fri",
-          "call_count": 54,
-          "avg_duration": 1842.8
+          "month": "2025-05",
+          "cost_per_booking": 2392.86
         },
         {
-          "weekday": "6-Sat",
-          "call_count": 72,
-          "avg_duration": 1640.8
+          "month": "2025-06",
+          "cost_per_booking": 2422.43
         },
         {
-          "weekday": "7-Sun",
-          "call_count": 74,
-          "avg_duration": 1790.8
+          "month": "2025-07",
+          "cost_per_booking": 2491.03
+        },
+        {
+          "month": "2025-08",
+          "cost_per_booking": 2637.38
+        },
+        {
+          "month": "2025-09",
+          "cost_per_booking": 2651.6
+        },
+        {
+          "month": "2025-10",
+          "cost_per_booking": 2273.18
+        },
+        {
+          "month": "2025-11",
+          "cost_per_booking": 2667.33
+        },
+        {
+          "month": "2025-12",
+          "cost_per_booking": 2539.59
+        },
+        {
+          "month": "2026-01",
+          "cost_per_booking": 1994.32
         }
       ]
     },
     {
-      "type": "FunnelChart",
-      "title": "Top 5 Callers by Volume (March 2025)",
-      "sql": "SELECT c.\"from\" AS caller, COUNT(*) AS volume FROM calls c WHERE c.date >= '2025-03-01' AND c.date < '2025-04-01' GROUP BY c.\"from\" ORDER BY volume DESC LIMIT 5",
-      "nameKey": "caller",
+      "type": "PieChart",
+      "title": "Cost Breakdown by Category",
+      "sql": "SELECT category AS name, SUM(amount) AS value FROM costs GROUP BY category ORDER BY value DESC",
+      "nameKey": "name",
+      "dataKey": "value",
       "series": [
         {
-          "dataKey": "volume",
-          "name": "Calls"
+          "dataKey": "value",
+          "name": "Amount"
         }
       ],
       "data": [
         {
-          "caller": "+1-555-8441",
-          "volume": 3
+          "name": "Software",
+          "value": 4285872
         },
         {
-          "caller": "+1-555-9896",
-          "volume": 2
+          "name": "Infrastructure",
+          "value": 4162992
         },
         {
-          "caller": "+1-555-9561",
-          "volume": 2
+          "name": "Marketing",
+          "value": 4020777
+        }
+      ]
+    },
+    {
+      "type": "PieChart",
+      "title": "Bookings Breakdown by Status",
+      "sql": "SELECT status AS name, COUNT(*) AS value FROM bookings GROUP BY status ORDER BY value DESC",
+      "nameKey": "name",
+      "dataKey": "value",
+      "series": [
+        {
+          "dataKey": "value",
+          "name": "Count"
+        }
+      ],
+      "data": [
+        {
+          "name": "cancelled",
+          "value": 1726
         },
         {
-          "caller": "+1-555-9095",
-          "volume": 2
+          "name": "pending",
+          "value": 1655
         },
         {
-          "caller": "+1-555-8435",
-          "volume": 2
+          "name": "confirmed",
+          "value": 1619
+        }
+      ]
+    },
+    {
+      "type": "ScatterChart",
+      "title": "Daily Costs vs Daily Bookings Correlation",
+      "sql": "SELECT COALESCE(c.daily_cost, 0) AS daily_cost, COALESCE(b.daily_bookings, 0) AS daily_bookings, d.date AS label FROM (SELECT DISTINCT date FROM costs UNION SELECT DISTINCT date FROM bookings) d LEFT JOIN (SELECT date, SUM(amount) AS daily_cost FROM costs GROUP BY date) c ON d.date = c.date LEFT JOIN (SELECT date, COUNT(*) AS daily_bookings FROM bookings GROUP BY date) b ON d.date = b.date ORDER BY d.date",
+      "xAxisKey": "daily_cost",
+      "yAxisKey": "daily_bookings",
+      "series": [
+        {
+          "dataKey": "daily_bookings",
+          "name": "Bookings"
+        }
+      ],
+      "data": [
+        {
+          "daily_cost": 25189,
+          "daily_bookings": 13,
+          "label": "2025-01-01"
+        },
+        {
+          "daily_cost": 27912,
+          "daily_bookings": 14,
+          "label": "2025-01-02"
+        },
+        {
+          "daily_cost": 41304,
+          "daily_bookings": 19,
+          "label": "2025-01-03"
+        },
+        {
+          "daily_cost": 28406,
+          "daily_bookings": 6,
+          "label": "2025-01-04"
+        },
+        {
+          "daily_cost": 37667,
+          "daily_bookings": 17,
+          "label": "2025-01-05"
+        },
+        {
+          "daily_cost": 22515,
+          "daily_bookings": 12,
+          "label": "2025-01-06"
+        },
+        {
+          "daily_cost": 27727,
+          "daily_bookings": 20,
+          "label": "2025-01-07"
+        },
+        {
+          "daily_cost": 42354,
+          "daily_bookings": 9,
+          "label": "2025-01-08"
+        },
+        {
+          "daily_cost": 17123,
+          "daily_bookings": 18,
+          "label": "2025-01-09"
+        },
+        {
+          "daily_cost": 42947,
+          "daily_bookings": 15,
+          "label": "2025-01-10"
+        },
+        {
+          "daily_cost": 33266,
+          "daily_bookings": 17,
+          "label": "2025-01-11"
+        },
+        {
+          "daily_cost": 35134,
+          "daily_bookings": 17,
+          "label": "2025-01-12"
+        },
+        {
+          "daily_cost": 26385,
+          "daily_bookings": 11,
+          "label": "2025-01-13"
+        },
+        {
+          "daily_cost": 40511,
+          "daily_bookings": 8,
+          "label": "2025-01-14"
+        },
+        {
+          "daily_cost": 41075,
+          "daily_bookings": 15,
+          "label": "2025-01-15"
+        },
+        {
+          "daily_cost": 31472,
+          "daily_bookings": 13,
+          "label": "2025-01-16"
+        },
+        {
+          "daily_cost": 29205,
+          "daily_bookings": 19,
+          "label": "2025-01-17"
+        },
+        {
+          "daily_cost": 34864,
+          "daily_bookings": 19,
+          "label": "2025-01-18"
+        },
+        {
+          "daily_cost": 10175,
+          "daily_bookings": 14,
+          "label": "2025-01-19"
+        },
+        {
+          "daily_cost": 50427,
+          "daily_bookings": 12,
+          "label": "2025-01-20"
+        },
+        {
+          "daily_cost": 33289,
+          "daily_bookings": 10,
+          "label": "2025-01-21"
+        },
+        {
+          "daily_cost": 45587,
+          "daily_bookings": 14,
+          "label": "2025-01-22"
+        },
+        {
+          "daily_cost": 54539,
+          "daily_bookings": 13,
+          "label": "2025-01-23"
+        },
+        {
+          "daily_cost": 27352,
+          "daily_bookings": 12,
+          "label": "2025-01-24"
+        },
+        {
+          "daily_cost": 32442,
+          "daily_bookings": 13,
+          "label": "2025-01-25"
+        },
+        {
+          "daily_cost": 30597,
+          "daily_bookings": 13,
+          "label": "2025-01-26"
+        },
+        {
+          "daily_cost": 67799,
+          "daily_bookings": 14,
+          "label": "2025-01-27"
+        },
+        {
+          "daily_cost": 43574,
+          "daily_bookings": 18,
+          "label": "2025-01-28"
+        },
+        {
+          "daily_cost": 28027,
+          "daily_bookings": 17,
+          "label": "2025-01-29"
+        },
+        {
+          "daily_cost": 25786,
+          "daily_bookings": 12,
+          "label": "2025-01-30"
+        },
+        {
+          "daily_cost": 41601,
+          "daily_bookings": 15,
+          "label": "2025-01-31"
+        },
+        {
+          "daily_cost": 39664,
+          "daily_bookings": 15,
+          "label": "2025-02-01"
+        },
+        {
+          "daily_cost": 51744,
+          "daily_bookings": 15,
+          "label": "2025-02-02"
+        },
+        {
+          "daily_cost": 36443,
+          "daily_bookings": 10,
+          "label": "2025-02-03"
+        },
+        {
+          "daily_cost": 28822,
+          "daily_bookings": 7,
+          "label": "2025-02-04"
+        },
+        {
+          "daily_cost": 29437,
+          "daily_bookings": 15,
+          "label": "2025-02-05"
+        },
+        {
+          "daily_cost": 16033,
+          "daily_bookings": 13,
+          "label": "2025-02-06"
+        },
+        {
+          "daily_cost": 34114,
+          "daily_bookings": 13,
+          "label": "2025-02-07"
+        },
+        {
+          "daily_cost": 21770,
+          "daily_bookings": 13,
+          "label": "2025-02-08"
+        },
+        {
+          "daily_cost": 38570,
+          "daily_bookings": 18,
+          "label": "2025-02-09"
+        },
+        {
+          "daily_cost": 34996,
+          "daily_bookings": 17,
+          "label": "2025-02-10"
+        },
+        {
+          "daily_cost": 28882,
+          "daily_bookings": 16,
+          "label": "2025-02-11"
+        },
+        {
+          "daily_cost": 30226,
+          "daily_bookings": 11,
+          "label": "2025-02-12"
+        },
+        {
+          "daily_cost": 27444,
+          "daily_bookings": 17,
+          "label": "2025-02-13"
+        },
+        {
+          "daily_cost": 41139,
+          "daily_bookings": 16,
+          "label": "2025-02-14"
+        },
+        {
+          "daily_cost": 25172,
+          "daily_bookings": 11,
+          "label": "2025-02-15"
+        },
+        {
+          "daily_cost": 43431,
+          "daily_bookings": 14,
+          "label": "2025-02-16"
+        },
+        {
+          "daily_cost": 38053,
+          "daily_bookings": 14,
+          "label": "2025-02-17"
+        },
+        {
+          "daily_cost": 51912,
+          "daily_bookings": 12,
+          "label": "2025-02-18"
+        },
+        {
+          "daily_cost": 15348,
+          "daily_bookings": 7,
+          "label": "2025-02-19"
+        },
+        {
+          "daily_cost": 52849,
+          "daily_bookings": 13,
+          "label": "2025-02-20"
+        },
+        {
+          "daily_cost": 19529,
+          "daily_bookings": 14,
+          "label": "2025-02-21"
+        },
+        {
+          "daily_cost": 26694,
+          "daily_bookings": 14,
+          "label": "2025-02-22"
+        },
+        {
+          "daily_cost": 29769,
+          "daily_bookings": 19,
+          "label": "2025-02-23"
+        },
+        {
+          "daily_cost": 29971,
+          "daily_bookings": 22,
+          "label": "2025-02-24"
+        },
+        {
+          "daily_cost": 35500,
+          "daily_bookings": 11,
+          "label": "2025-02-25"
+        },
+        {
+          "daily_cost": 28437,
+          "daily_bookings": 16,
+          "label": "2025-02-26"
+        },
+        {
+          "daily_cost": 50568,
+          "daily_bookings": 6,
+          "label": "2025-02-27"
+        },
+        {
+          "daily_cost": 29793,
+          "daily_bookings": 8,
+          "label": "2025-02-28"
+        },
+        {
+          "daily_cost": 20262,
+          "daily_bookings": 10,
+          "label": "2025-03-01"
+        },
+        {
+          "daily_cost": 16045,
+          "daily_bookings": 14,
+          "label": "2025-03-02"
+        },
+        {
+          "daily_cost": 26027,
+          "daily_bookings": 5,
+          "label": "2025-03-03"
+        },
+        {
+          "daily_cost": 14038,
+          "daily_bookings": 13,
+          "label": "2025-03-04"
+        },
+        {
+          "daily_cost": 39438,
+          "daily_bookings": 9,
+          "label": "2025-03-05"
+        },
+        {
+          "daily_cost": 13104,
+          "daily_bookings": 13,
+          "label": "2025-03-06"
+        },
+        {
+          "daily_cost": 44718,
+          "daily_bookings": 12,
+          "label": "2025-03-07"
+        },
+        {
+          "daily_cost": 21750,
+          "daily_bookings": 16,
+          "label": "2025-03-08"
+        },
+        {
+          "daily_cost": 33703,
+          "daily_bookings": 8,
+          "label": "2025-03-09"
+        },
+        {
+          "daily_cost": 32398,
+          "daily_bookings": 23,
+          "label": "2025-03-10"
+        },
+        {
+          "daily_cost": 37965,
+          "daily_bookings": 13,
+          "label": "2025-03-11"
+        },
+        {
+          "daily_cost": 31175,
+          "daily_bookings": 17,
+          "label": "2025-03-12"
+        },
+        {
+          "daily_cost": 22758,
+          "daily_bookings": 14,
+          "label": "2025-03-13"
+        },
+        {
+          "daily_cost": 19223,
+          "daily_bookings": 14,
+          "label": "2025-03-14"
+        },
+        {
+          "daily_cost": 34384,
+          "daily_bookings": 13,
+          "label": "2025-03-15"
+        },
+        {
+          "daily_cost": 42976,
+          "daily_bookings": 11,
+          "label": "2025-03-16"
+        },
+        {
+          "daily_cost": 35972,
+          "daily_bookings": 12,
+          "label": "2025-03-17"
+        },
+        {
+          "daily_cost": 14354,
+          "daily_bookings": 13,
+          "label": "2025-03-18"
+        },
+        {
+          "daily_cost": 42686,
+          "daily_bookings": 16,
+          "label": "2025-03-19"
+        },
+        {
+          "daily_cost": 24700,
+          "daily_bookings": 13,
+          "label": "2025-03-20"
+        },
+        {
+          "daily_cost": 19562,
+          "daily_bookings": 13,
+          "label": "2025-03-21"
+        },
+        {
+          "daily_cost": 34804,
+          "daily_bookings": 10,
+          "label": "2025-03-22"
+        },
+        {
+          "daily_cost": 27430,
+          "daily_bookings": 16,
+          "label": "2025-03-23"
+        },
+        {
+          "daily_cost": 35325,
+          "daily_bookings": 19,
+          "label": "2025-03-24"
+        },
+        {
+          "daily_cost": 33735,
+          "daily_bookings": 12,
+          "label": "2025-03-25"
+        },
+        {
+          "daily_cost": 40628,
+          "daily_bookings": 19,
+          "label": "2025-03-26"
+        },
+        {
+          "daily_cost": 25793,
+          "daily_bookings": 14,
+          "label": "2025-03-27"
+        },
+        {
+          "daily_cost": 25359,
+          "daily_bookings": 18,
+          "label": "2025-03-28"
+        },
+        {
+          "daily_cost": 26742,
+          "daily_bookings": 15,
+          "label": "2025-03-29"
+        },
+        {
+          "daily_cost": 43184,
+          "daily_bookings": 15,
+          "label": "2025-03-30"
+        },
+        {
+          "daily_cost": 26065,
+          "daily_bookings": 17,
+          "label": "2025-03-31"
+        },
+        {
+          "daily_cost": 13921,
+          "daily_bookings": 14,
+          "label": "2025-04-01"
+        },
+        {
+          "daily_cost": 40647,
+          "daily_bookings": 9,
+          "label": "2025-04-02"
+        },
+        {
+          "daily_cost": 16574,
+          "daily_bookings": 12,
+          "label": "2025-04-03"
+        },
+        {
+          "daily_cost": 42872,
+          "daily_bookings": 19,
+          "label": "2025-04-04"
+        },
+        {
+          "daily_cost": 35441,
+          "daily_bookings": 10,
+          "label": "2025-04-05"
+        },
+        {
+          "daily_cost": 23171,
+          "daily_bookings": 9,
+          "label": "2025-04-06"
+        },
+        {
+          "daily_cost": 16339,
+          "daily_bookings": 7,
+          "label": "2025-04-07"
+        },
+        {
+          "daily_cost": 22272,
+          "daily_bookings": 9,
+          "label": "2025-04-08"
+        },
+        {
+          "daily_cost": 28358,
+          "daily_bookings": 18,
+          "label": "2025-04-09"
+        },
+        {
+          "daily_cost": 42430,
+          "daily_bookings": 12,
+          "label": "2025-04-10"
+        },
+        {
+          "daily_cost": 45029,
+          "daily_bookings": 15,
+          "label": "2025-04-11"
+        },
+        {
+          "daily_cost": 47682,
+          "daily_bookings": 14,
+          "label": "2025-04-12"
+        },
+        {
+          "daily_cost": 38844,
+          "daily_bookings": 17,
+          "label": "2025-04-13"
+        },
+        {
+          "daily_cost": 19875,
+          "daily_bookings": 9,
+          "label": "2025-04-14"
+        },
+        {
+          "daily_cost": 54704,
+          "daily_bookings": 9,
+          "label": "2025-04-15"
+        },
+        {
+          "daily_cost": 33442,
+          "daily_bookings": 11,
+          "label": "2025-04-16"
+        },
+        {
+          "daily_cost": 34290,
+          "daily_bookings": 12,
+          "label": "2025-04-17"
+        },
+        {
+          "daily_cost": 25244,
+          "daily_bookings": 10,
+          "label": "2025-04-18"
+        },
+        {
+          "daily_cost": 64826,
+          "daily_bookings": 11,
+          "label": "2025-04-19"
+        },
+        {
+          "daily_cost": 51493,
+          "daily_bookings": 20,
+          "label": "2025-04-20"
+        },
+        {
+          "daily_cost": 38136,
+          "daily_bookings": 10,
+          "label": "2025-04-21"
+        },
+        {
+          "daily_cost": 45906,
+          "daily_bookings": 15,
+          "label": "2025-04-22"
+        },
+        {
+          "daily_cost": 22896,
+          "daily_bookings": 9,
+          "label": "2025-04-23"
+        },
+        {
+          "daily_cost": 37486,
+          "daily_bookings": 13,
+          "label": "2025-04-24"
+        },
+        {
+          "daily_cost": 47806,
+          "daily_bookings": 9,
+          "label": "2025-04-25"
+        },
+        {
+          "daily_cost": 40512,
+          "daily_bookings": 14,
+          "label": "2025-04-26"
+        },
+        {
+          "daily_cost": 22661,
+          "daily_bookings": 10,
+          "label": "2025-04-27"
+        },
+        {
+          "daily_cost": 32272,
+          "daily_bookings": 13,
+          "label": "2025-04-28"
+        },
+        {
+          "daily_cost": 40083,
+          "daily_bookings": 14,
+          "label": "2025-04-29"
+        },
+        {
+          "daily_cost": 28456,
+          "daily_bookings": 10,
+          "label": "2025-04-30"
+        },
+        {
+          "daily_cost": 18627,
+          "daily_bookings": 12,
+          "label": "2025-05-01"
+        },
+        {
+          "daily_cost": 28034,
+          "daily_bookings": 11,
+          "label": "2025-05-02"
+        },
+        {
+          "daily_cost": 28659,
+          "daily_bookings": 14,
+          "label": "2025-05-03"
+        },
+        {
+          "daily_cost": 45477,
+          "daily_bookings": 21,
+          "label": "2025-05-04"
+        },
+        {
+          "daily_cost": 36895,
+          "daily_bookings": 14,
+          "label": "2025-05-05"
+        },
+        {
+          "daily_cost": 50856,
+          "daily_bookings": 20,
+          "label": "2025-05-06"
+        },
+        {
+          "daily_cost": 18542,
+          "daily_bookings": 17,
+          "label": "2025-05-07"
+        },
+        {
+          "daily_cost": 33221,
+          "daily_bookings": 6,
+          "label": "2025-05-08"
+        },
+        {
+          "daily_cost": 40196,
+          "daily_bookings": 14,
+          "label": "2025-05-09"
+        },
+        {
+          "daily_cost": 36208,
+          "daily_bookings": 15,
+          "label": "2025-05-10"
+        },
+        {
+          "daily_cost": 36584,
+          "daily_bookings": 12,
+          "label": "2025-05-11"
+        },
+        {
+          "daily_cost": 58069,
+          "daily_bookings": 16,
+          "label": "2025-05-12"
+        },
+        {
+          "daily_cost": 32342,
+          "daily_bookings": 12,
+          "label": "2025-05-13"
+        },
+        {
+          "daily_cost": 34856,
+          "daily_bookings": 15,
+          "label": "2025-05-14"
+        },
+        {
+          "daily_cost": 34774,
+          "daily_bookings": 9,
+          "label": "2025-05-15"
+        },
+        {
+          "daily_cost": 34737,
+          "daily_bookings": 19,
+          "label": "2025-05-16"
+        },
+        {
+          "daily_cost": 33989,
+          "daily_bookings": 11,
+          "label": "2025-05-17"
+        },
+        {
+          "daily_cost": 46855,
+          "daily_bookings": 20,
+          "label": "2025-05-18"
+        },
+        {
+          "daily_cost": 30746,
+          "daily_bookings": 13,
+          "label": "2025-05-19"
+        },
+        {
+          "daily_cost": 35291,
+          "daily_bookings": 15,
+          "label": "2025-05-20"
+        },
+        {
+          "daily_cost": 44488,
+          "daily_bookings": 4,
+          "label": "2025-05-21"
+        },
+        {
+          "daily_cost": 33405,
+          "daily_bookings": 12,
+          "label": "2025-05-22"
+        },
+        {
+          "daily_cost": 11597,
+          "daily_bookings": 16,
+          "label": "2025-05-23"
+        },
+        {
+          "daily_cost": 20910,
+          "daily_bookings": 13,
+          "label": "2025-05-24"
+        },
+        {
+          "daily_cost": 19140,
+          "daily_bookings": 15,
+          "label": "2025-05-25"
+        },
+        {
+          "daily_cost": 27417,
+          "daily_bookings": 14,
+          "label": "2025-05-26"
+        },
+        {
+          "daily_cost": 23815,
+          "daily_bookings": 17,
+          "label": "2025-05-27"
+        },
+        {
+          "daily_cost": 34264,
+          "daily_bookings": 12,
+          "label": "2025-05-28"
+        },
+        {
+          "daily_cost": 35659,
+          "daily_bookings": 8,
+          "label": "2025-05-29"
+        },
+        {
+          "daily_cost": 23454,
+          "daily_bookings": 16,
+          "label": "2025-05-30"
+        },
+        {
+          "daily_cost": 25466,
+          "daily_bookings": 11,
+          "label": "2025-05-31"
+        },
+        {
+          "daily_cost": 42510,
+          "daily_bookings": 11,
+          "label": "2025-06-01"
+        },
+        {
+          "daily_cost": 35328,
+          "daily_bookings": 9,
+          "label": "2025-06-02"
+        },
+        {
+          "daily_cost": 32954,
+          "daily_bookings": 7,
+          "label": "2025-06-03"
+        },
+        {
+          "daily_cost": 43007,
+          "daily_bookings": 20,
+          "label": "2025-06-04"
+        },
+        {
+          "daily_cost": 34154,
+          "daily_bookings": 10,
+          "label": "2025-06-05"
+        },
+        {
+          "daily_cost": 21095,
+          "daily_bookings": 16,
+          "label": "2025-06-06"
+        },
+        {
+          "daily_cost": 38829,
+          "daily_bookings": 19,
+          "label": "2025-06-07"
+        },
+        {
+          "daily_cost": 22977,
+          "daily_bookings": 11,
+          "label": "2025-06-08"
+        },
+        {
+          "daily_cost": 37065,
+          "daily_bookings": 14,
+          "label": "2025-06-09"
+        },
+        {
+          "daily_cost": 23961,
+          "daily_bookings": 20,
+          "label": "2025-06-10"
+        },
+        {
+          "daily_cost": 35403,
+          "daily_bookings": 19,
+          "label": "2025-06-11"
+        },
+        {
+          "daily_cost": 26501,
+          "daily_bookings": 19,
+          "label": "2025-06-12"
+        },
+        {
+          "daily_cost": 51292,
+          "daily_bookings": 14,
+          "label": "2025-06-13"
+        },
+        {
+          "daily_cost": 22354,
+          "daily_bookings": 14,
+          "label": "2025-06-14"
+        },
+        {
+          "daily_cost": 38606,
+          "daily_bookings": 15,
+          "label": "2025-06-15"
+        },
+        {
+          "daily_cost": 20812,
+          "daily_bookings": 13,
+          "label": "2025-06-16"
+        },
+        {
+          "daily_cost": 49779,
+          "daily_bookings": 17,
+          "label": "2025-06-17"
+        },
+        {
+          "daily_cost": 9467,
+          "daily_bookings": 13,
+          "label": "2025-06-18"
+        },
+        {
+          "daily_cost": 60220,
+          "daily_bookings": 12,
+          "label": "2025-06-19"
+        },
+        {
+          "daily_cost": 28441,
+          "daily_bookings": 13,
+          "label": "2025-06-20"
+        },
+        {
+          "daily_cost": 28096,
+          "daily_bookings": 10,
+          "label": "2025-06-21"
+        },
+        {
+          "daily_cost": 29598,
+          "daily_bookings": 10,
+          "label": "2025-06-22"
+        },
+        {
+          "daily_cost": 14264,
+          "daily_bookings": 10,
+          "label": "2025-06-23"
+        },
+        {
+          "daily_cost": 26987,
+          "daily_bookings": 13,
+          "label": "2025-06-24"
+        },
+        {
+          "daily_cost": 48030,
+          "daily_bookings": 10,
+          "label": "2025-06-25"
+        },
+        {
+          "daily_cost": 25880,
+          "daily_bookings": 26,
+          "label": "2025-06-26"
+        },
+        {
+          "daily_cost": 45337,
+          "daily_bookings": 11,
+          "label": "2025-06-27"
+        },
+        {
+          "daily_cost": 34780,
+          "daily_bookings": 12,
+          "label": "2025-06-28"
+        },
+        {
+          "daily_cost": 41425,
+          "daily_bookings": 13,
+          "label": "2025-06-29"
+        },
+        {
+          "daily_cost": 24043,
+          "daily_bookings": 9,
+          "label": "2025-06-30"
+        },
+        {
+          "daily_cost": 28638,
+          "daily_bookings": 10,
+          "label": "2025-07-01"
+        },
+        {
+          "daily_cost": 51355,
+          "daily_bookings": 19,
+          "label": "2025-07-02"
+        },
+        {
+          "daily_cost": 24363,
+          "daily_bookings": 17,
+          "label": "2025-07-03"
+        },
+        {
+          "daily_cost": 24276,
+          "daily_bookings": 13,
+          "label": "2025-07-04"
+        },
+        {
+          "daily_cost": 49297,
+          "daily_bookings": 14,
+          "label": "2025-07-05"
+        },
+        {
+          "daily_cost": 22564,
+          "daily_bookings": 12,
+          "label": "2025-07-06"
+        },
+        {
+          "daily_cost": 45824,
+          "daily_bookings": 12,
+          "label": "2025-07-07"
+        },
+        {
+          "daily_cost": 22821,
+          "daily_bookings": 24,
+          "label": "2025-07-08"
+        },
+        {
+          "daily_cost": 17723,
+          "daily_bookings": 11,
+          "label": "2025-07-09"
+        },
+        {
+          "daily_cost": 52522,
+          "daily_bookings": 22,
+          "label": "2025-07-10"
+        },
+        {
+          "daily_cost": 24913,
+          "daily_bookings": 9,
+          "label": "2025-07-11"
+        },
+        {
+          "daily_cost": 35363,
+          "daily_bookings": 13,
+          "label": "2025-07-12"
+        },
+        {
+          "daily_cost": 27796,
+          "daily_bookings": 15,
+          "label": "2025-07-13"
+        },
+        {
+          "daily_cost": 33505,
+          "daily_bookings": 10,
+          "label": "2025-07-14"
+        },
+        {
+          "daily_cost": 23819,
+          "daily_bookings": 14,
+          "label": "2025-07-15"
+        },
+        {
+          "daily_cost": 40913,
+          "daily_bookings": 20,
+          "label": "2025-07-16"
+        },
+        {
+          "daily_cost": 44510,
+          "daily_bookings": 14,
+          "label": "2025-07-17"
+        },
+        {
+          "daily_cost": 19273,
+          "daily_bookings": 10,
+          "label": "2025-07-18"
+        },
+        {
+          "daily_cost": 13480,
+          "daily_bookings": 15,
+          "label": "2025-07-19"
+        },
+        {
+          "daily_cost": 26339,
+          "daily_bookings": 14,
+          "label": "2025-07-20"
+        },
+        {
+          "daily_cost": 26189,
+          "daily_bookings": 17,
+          "label": "2025-07-21"
+        },
+        {
+          "daily_cost": 43996,
+          "daily_bookings": 20,
+          "label": "2025-07-22"
+        },
+        {
+          "daily_cost": 47074,
+          "daily_bookings": 10,
+          "label": "2025-07-23"
+        },
+        {
+          "daily_cost": 60393,
+          "daily_bookings": 7,
+          "label": "2025-07-24"
+        },
+        {
+          "daily_cost": 23617,
+          "daily_bookings": 8,
+          "label": "2025-07-25"
+        },
+        {
+          "daily_cost": 29598,
+          "daily_bookings": 13,
+          "label": "2025-07-26"
+        },
+        {
+          "daily_cost": 64678,
+          "daily_bookings": 14,
+          "label": "2025-07-27"
+        },
+        {
+          "daily_cost": 27669,
+          "daily_bookings": 12,
+          "label": "2025-07-28"
+        },
+        {
+          "daily_cost": 34712,
+          "daily_bookings": 17,
+          "label": "2025-07-29"
+        },
+        {
+          "daily_cost": 52229,
+          "daily_bookings": 12,
+          "label": "2025-07-30"
+        },
+        {
+          "daily_cost": 36676,
+          "daily_bookings": 14,
+          "label": "2025-07-31"
+        },
+        {
+          "daily_cost": 36915,
+          "daily_bookings": 13,
+          "label": "2025-08-01"
+        },
+        {
+          "daily_cost": 51916,
+          "daily_bookings": 19,
+          "label": "2025-08-02"
+        },
+        {
+          "daily_cost": 44514,
+          "daily_bookings": 10,
+          "label": "2025-08-03"
+        },
+        {
+          "daily_cost": 44586,
+          "daily_bookings": 16,
+          "label": "2025-08-04"
+        },
+        {
+          "daily_cost": 24913,
+          "daily_bookings": 13,
+          "label": "2025-08-05"
+        },
+        {
+          "daily_cost": 24607,
+          "daily_bookings": 21,
+          "label": "2025-08-06"
+        },
+        {
+          "daily_cost": 41293,
+          "daily_bookings": 19,
+          "label": "2025-08-07"
+        },
+        {
+          "daily_cost": 40425,
+          "daily_bookings": 11,
+          "label": "2025-08-08"
+        },
+        {
+          "daily_cost": 53765,
+          "daily_bookings": 8,
+          "label": "2025-08-09"
+        },
+        {
+          "daily_cost": 28579,
+          "daily_bookings": 11,
+          "label": "2025-08-10"
+        },
+        {
+          "daily_cost": 19694,
+          "daily_bookings": 13,
+          "label": "2025-08-11"
+        },
+        {
+          "daily_cost": 25390,
+          "daily_bookings": 13,
+          "label": "2025-08-12"
+        },
+        {
+          "daily_cost": 40602,
+          "daily_bookings": 22,
+          "label": "2025-08-13"
+        },
+        {
+          "daily_cost": 25239,
+          "daily_bookings": 10,
+          "label": "2025-08-14"
+        },
+        {
+          "daily_cost": 36137,
+          "daily_bookings": 15,
+          "label": "2025-08-15"
+        },
+        {
+          "daily_cost": 31344,
+          "daily_bookings": 14,
+          "label": "2025-08-16"
+        },
+        {
+          "daily_cost": 40957,
+          "daily_bookings": 9,
+          "label": "2025-08-17"
+        },
+        {
+          "daily_cost": 27584,
+          "daily_bookings": 16,
+          "label": "2025-08-18"
+        },
+        {
+          "daily_cost": 30172,
+          "daily_bookings": 6,
+          "label": "2025-08-19"
+        },
+        {
+          "daily_cost": 40912,
+          "daily_bookings": 10,
+          "label": "2025-08-20"
+        },
+        {
+          "daily_cost": 37830,
+          "daily_bookings": 12,
+          "label": "2025-08-21"
+        },
+        {
+          "daily_cost": 36915,
+          "daily_bookings": 11,
+          "label": "2025-08-22"
+        },
+        {
+          "daily_cost": 29122,
+          "daily_bookings": 11,
+          "label": "2025-08-23"
+        },
+        {
+          "daily_cost": 40256,
+          "daily_bookings": 18,
+          "label": "2025-08-24"
+        },
+        {
+          "daily_cost": 25563,
+          "daily_bookings": 13,
+          "label": "2025-08-25"
+        },
+        {
+          "daily_cost": 11626,
+          "daily_bookings": 18,
+          "label": "2025-08-26"
+        },
+        {
+          "daily_cost": 45054,
+          "daily_bookings": 11,
+          "label": "2025-08-27"
+        },
+        {
+          "daily_cost": 44826,
+          "daily_bookings": 14,
+          "label": "2025-08-28"
+        },
+        {
+          "daily_cost": 39213,
+          "daily_bookings": 13,
+          "label": "2025-08-29"
+        },
+        {
+          "daily_cost": 52150,
+          "daily_bookings": 17,
+          "label": "2025-08-30"
+        },
+        {
+          "daily_cost": 51427,
+          "daily_bookings": 19,
+          "label": "2025-08-31"
+        },
+        {
+          "daily_cost": 38652,
+          "daily_bookings": 21,
+          "label": "2025-09-01"
+        },
+        {
+          "daily_cost": 21207,
+          "daily_bookings": 16,
+          "label": "2025-09-02"
+        },
+        {
+          "daily_cost": 22641,
+          "daily_bookings": 18,
+          "label": "2025-09-03"
+        },
+        {
+          "daily_cost": 47721,
+          "daily_bookings": 10,
+          "label": "2025-09-04"
+        },
+        {
+          "daily_cost": 31194,
+          "daily_bookings": 11,
+          "label": "2025-09-05"
+        },
+        {
+          "daily_cost": 39506,
+          "daily_bookings": 10,
+          "label": "2025-09-06"
+        },
+        {
+          "daily_cost": 24464,
+          "daily_bookings": 14,
+          "label": "2025-09-07"
+        },
+        {
+          "daily_cost": 48004,
+          "daily_bookings": 16,
+          "label": "2025-09-08"
+        },
+        {
+          "daily_cost": 29116,
+          "daily_bookings": 14,
+          "label": "2025-09-09"
+        },
+        {
+          "daily_cost": 45491,
+          "daily_bookings": 11,
+          "label": "2025-09-10"
+        },
+        {
+          "daily_cost": 38331,
+          "daily_bookings": 6,
+          "label": "2025-09-11"
+        },
+        {
+          "daily_cost": 9957,
+          "daily_bookings": 13,
+          "label": "2025-09-12"
+        },
+        {
+          "daily_cost": 64311,
+          "daily_bookings": 17,
+          "label": "2025-09-13"
+        },
+        {
+          "daily_cost": 21534,
+          "daily_bookings": 17,
+          "label": "2025-09-14"
+        },
+        {
+          "daily_cost": 28023,
+          "daily_bookings": 9,
+          "label": "2025-09-15"
+        },
+        {
+          "daily_cost": 37574,
+          "daily_bookings": 9,
+          "label": "2025-09-16"
+        },
+        {
+          "daily_cost": 42025,
+          "daily_bookings": 19,
+          "label": "2025-09-17"
+        },
+        {
+          "daily_cost": 43392,
+          "daily_bookings": 17,
+          "label": "2025-09-18"
+        },
+        {
+          "daily_cost": 37226,
+          "daily_bookings": 12,
+          "label": "2025-09-19"
+        },
+        {
+          "daily_cost": 57405,
+          "daily_bookings": 18,
+          "label": "2025-09-20"
+        },
+        {
+          "daily_cost": 30568,
+          "daily_bookings": 18,
+          "label": "2025-09-21"
+        },
+        {
+          "daily_cost": 40418,
+          "daily_bookings": 20,
+          "label": "2025-09-22"
+        },
+        {
+          "daily_cost": 35056,
+          "daily_bookings": 15,
+          "label": "2025-09-23"
+        },
+        {
+          "daily_cost": 63520,
+          "daily_bookings": 13,
+          "label": "2025-09-24"
+        },
+        {
+          "daily_cost": 24331,
+          "daily_bookings": 12,
+          "label": "2025-09-25"
+        },
+        {
+          "daily_cost": 30966,
+          "daily_bookings": 9,
+          "label": "2025-09-26"
+        },
+        {
+          "daily_cost": 53203,
+          "daily_bookings": 18,
+          "label": "2025-09-27"
+        },
+        {
+          "daily_cost": 23963,
+          "daily_bookings": 12,
+          "label": "2025-09-28"
+        },
+        {
+          "daily_cost": 37453,
+          "daily_bookings": 8,
+          "label": "2025-09-29"
+        },
+        {
+          "daily_cost": 22557,
+          "daily_bookings": 8,
+          "label": "2025-09-30"
+        },
+        {
+          "daily_cost": 29549,
+          "daily_bookings": 16,
+          "label": "2025-10-01"
+        },
+        {
+          "daily_cost": 28761,
+          "daily_bookings": 18,
+          "label": "2025-10-02"
+        },
+        {
+          "daily_cost": 29175,
+          "daily_bookings": 12,
+          "label": "2025-10-03"
+        },
+        {
+          "daily_cost": 27991,
+          "daily_bookings": 14,
+          "label": "2025-10-04"
+        },
+        {
+          "daily_cost": 41537,
+          "daily_bookings": 11,
+          "label": "2025-10-05"
+        },
+        {
+          "daily_cost": 31256,
+          "daily_bookings": 16,
+          "label": "2025-10-06"
+        },
+        {
+          "daily_cost": 22575,
+          "daily_bookings": 20,
+          "label": "2025-10-07"
+        },
+        {
+          "daily_cost": 62117,
+          "daily_bookings": 19,
+          "label": "2025-10-08"
+        },
+        {
+          "daily_cost": 43589,
+          "daily_bookings": 18,
+          "label": "2025-10-09"
+        },
+        {
+          "daily_cost": 27787,
+          "daily_bookings": 8,
+          "label": "2025-10-10"
+        },
+        {
+          "daily_cost": 28158,
+          "daily_bookings": 14,
+          "label": "2025-10-11"
+        },
+        {
+          "daily_cost": 60878,
+          "daily_bookings": 12,
+          "label": "2025-10-12"
+        },
+        {
+          "daily_cost": 38815,
+          "daily_bookings": 13,
+          "label": "2025-10-13"
+        },
+        {
+          "daily_cost": 27073,
+          "daily_bookings": 17,
+          "label": "2025-10-14"
+        },
+        {
+          "daily_cost": 41727,
+          "daily_bookings": 16,
+          "label": "2025-10-15"
+        },
+        {
+          "daily_cost": 30995,
+          "daily_bookings": 16,
+          "label": "2025-10-16"
+        },
+        {
+          "daily_cost": 22231,
+          "daily_bookings": 11,
+          "label": "2025-10-17"
+        },
+        {
+          "daily_cost": 37446,
+          "daily_bookings": 15,
+          "label": "2025-10-18"
+        },
+        {
+          "daily_cost": 29896,
+          "daily_bookings": 14,
+          "label": "2025-10-19"
+        },
+        {
+          "daily_cost": 34056,
+          "daily_bookings": 20,
+          "label": "2025-10-20"
+        },
+        {
+          "daily_cost": 23373,
+          "daily_bookings": 25,
+          "label": "2025-10-21"
+        },
+        {
+          "daily_cost": 26156,
+          "daily_bookings": 12,
+          "label": "2025-10-22"
+        },
+        {
+          "daily_cost": 27320,
+          "daily_bookings": 14,
+          "label": "2025-10-23"
+        },
+        {
+          "daily_cost": 17376,
+          "daily_bookings": 16,
+          "label": "2025-10-24"
+        },
+        {
+          "daily_cost": 21140,
+          "daily_bookings": 9,
+          "label": "2025-10-25"
+        },
+        {
+          "daily_cost": 53342,
+          "daily_bookings": 12,
+          "label": "2025-10-26"
+        },
+        {
+          "daily_cost": 20406,
+          "daily_bookings": 15,
+          "label": "2025-10-27"
+        },
+        {
+          "daily_cost": 31428,
+          "daily_bookings": 8,
+          "label": "2025-10-28"
+        },
+        {
+          "daily_cost": 33318,
+          "daily_bookings": 9,
+          "label": "2025-10-29"
+        },
+        {
+          "daily_cost": 38594,
+          "daily_bookings": 14,
+          "label": "2025-10-30"
+        },
+        {
+          "daily_cost": 30319,
+          "daily_bookings": 14,
+          "label": "2025-10-31"
+        },
+        {
+          "daily_cost": 38663,
+          "daily_bookings": 14,
+          "label": "2025-11-01"
+        },
+        {
+          "daily_cost": 50395,
+          "daily_bookings": 15,
+          "label": "2025-11-02"
+        },
+        {
+          "daily_cost": 34359,
+          "daily_bookings": 10,
+          "label": "2025-11-03"
+        },
+        {
+          "daily_cost": 32894,
+          "daily_bookings": 14,
+          "label": "2025-11-04"
+        },
+        {
+          "daily_cost": 40145,
+          "daily_bookings": 9,
+          "label": "2025-11-05"
+        },
+        {
+          "daily_cost": 50153,
+          "daily_bookings": 14,
+          "label": "2025-11-06"
+        },
+        {
+          "daily_cost": 30281,
+          "daily_bookings": 16,
+          "label": "2025-11-07"
+        },
+        {
+          "daily_cost": 47311,
+          "daily_bookings": 14,
+          "label": "2025-11-08"
+        },
+        {
+          "daily_cost": 43525,
+          "daily_bookings": 15,
+          "label": "2025-11-09"
+        },
+        {
+          "daily_cost": 18987,
+          "daily_bookings": 12,
+          "label": "2025-11-10"
+        },
+        {
+          "daily_cost": 46316,
+          "daily_bookings": 16,
+          "label": "2025-11-11"
+        },
+        {
+          "daily_cost": 54263,
+          "daily_bookings": 15,
+          "label": "2025-11-12"
+        },
+        {
+          "daily_cost": 26068,
+          "daily_bookings": 9,
+          "label": "2025-11-13"
+        },
+        {
+          "daily_cost": 39900,
+          "daily_bookings": 13,
+          "label": "2025-11-14"
+        },
+        {
+          "daily_cost": 29822,
+          "daily_bookings": 16,
+          "label": "2025-11-15"
+        },
+        {
+          "daily_cost": 38323,
+          "daily_bookings": 21,
+          "label": "2025-11-16"
+        },
+        {
+          "daily_cost": 35697,
+          "daily_bookings": 23,
+          "label": "2025-11-17"
+        },
+        {
+          "daily_cost": 26495,
+          "daily_bookings": 11,
+          "label": "2025-11-18"
+        },
+        {
+          "daily_cost": 23121,
+          "daily_bookings": 11,
+          "label": "2025-11-19"
+        },
+        {
+          "daily_cost": 43926,
+          "daily_bookings": 13,
+          "label": "2025-11-20"
+        },
+        {
+          "daily_cost": 23487,
+          "daily_bookings": 14,
+          "label": "2025-11-21"
+        },
+        {
+          "daily_cost": 48479,
+          "daily_bookings": 13,
+          "label": "2025-11-22"
+        },
+        {
+          "daily_cost": 44777,
+          "daily_bookings": 12,
+          "label": "2025-11-23"
+        },
+        {
+          "daily_cost": 32807,
+          "daily_bookings": 15,
+          "label": "2025-11-24"
+        },
+        {
+          "daily_cost": 46267,
+          "daily_bookings": 17,
+          "label": "2025-11-25"
+        },
+        {
+          "daily_cost": 18848,
+          "daily_bookings": 15,
+          "label": "2025-11-26"
+        },
+        {
+          "daily_cost": 38803,
+          "daily_bookings": 11,
+          "label": "2025-11-27"
+        },
+        {
+          "daily_cost": 38120,
+          "daily_bookings": 14,
+          "label": "2025-11-28"
+        },
+        {
+          "daily_cost": 32685,
+          "daily_bookings": 11,
+          "label": "2025-11-29"
+        },
+        {
+          "daily_cost": 42693,
+          "daily_bookings": 16,
+          "label": "2025-11-30"
+        },
+        {
+          "daily_cost": 24347,
+          "daily_bookings": 11,
+          "label": "2025-12-01"
+        },
+        {
+          "daily_cost": 27830,
+          "daily_bookings": 17,
+          "label": "2025-12-02"
+        },
+        {
+          "daily_cost": 34914,
+          "daily_bookings": 10,
+          "label": "2025-12-03"
+        },
+        {
+          "daily_cost": 22188,
+          "daily_bookings": 13,
+          "label": "2025-12-04"
+        },
+        {
+          "daily_cost": 14828,
+          "daily_bookings": 10,
+          "label": "2025-12-05"
+        },
+        {
+          "daily_cost": 37918,
+          "daily_bookings": 14,
+          "label": "2025-12-06"
+        },
+        {
+          "daily_cost": 40076,
+          "daily_bookings": 13,
+          "label": "2025-12-07"
+        },
+        {
+          "daily_cost": 23493,
+          "daily_bookings": 12,
+          "label": "2025-12-08"
+        },
+        {
+          "daily_cost": 52369,
+          "daily_bookings": 20,
+          "label": "2025-12-09"
+        },
+        {
+          "daily_cost": 32577,
+          "daily_bookings": 15,
+          "label": "2025-12-10"
+        },
+        {
+          "daily_cost": 30845,
+          "daily_bookings": 15,
+          "label": "2025-12-11"
+        },
+        {
+          "daily_cost": 36244,
+          "daily_bookings": 10,
+          "label": "2025-12-12"
+        },
+        {
+          "daily_cost": 38545,
+          "daily_bookings": 14,
+          "label": "2025-12-13"
+        },
+        {
+          "daily_cost": 46556,
+          "daily_bookings": 20,
+          "label": "2025-12-14"
+        },
+        {
+          "daily_cost": 37018,
+          "daily_bookings": 15,
+          "label": "2025-12-15"
+        },
+        {
+          "daily_cost": 43265,
+          "daily_bookings": 10,
+          "label": "2025-12-16"
+        },
+        {
+          "daily_cost": 42918,
+          "daily_bookings": 8,
+          "label": "2025-12-17"
+        },
+        {
+          "daily_cost": 40720,
+          "daily_bookings": 14,
+          "label": "2025-12-18"
+        },
+        {
+          "daily_cost": 26519,
+          "daily_bookings": 11,
+          "label": "2025-12-19"
+        },
+        {
+          "daily_cost": 48460,
+          "daily_bookings": 8,
+          "label": "2025-12-20"
+        },
+        {
+          "daily_cost": 23511,
+          "daily_bookings": 14,
+          "label": "2025-12-21"
+        },
+        {
+          "daily_cost": 38921,
+          "daily_bookings": 17,
+          "label": "2025-12-22"
+        },
+        {
+          "daily_cost": 28148,
+          "daily_bookings": 8,
+          "label": "2025-12-23"
+        },
+        {
+          "daily_cost": 25004,
+          "daily_bookings": 9,
+          "label": "2025-12-24"
+        },
+        {
+          "daily_cost": 8992,
+          "daily_bookings": 14,
+          "label": "2025-12-25"
+        },
+        {
+          "daily_cost": 33597,
+          "daily_bookings": 13,
+          "label": "2025-12-26"
+        },
+        {
+          "daily_cost": 47626,
+          "daily_bookings": 17,
+          "label": "2025-12-27"
+        },
+        {
+          "daily_cost": 31914,
+          "daily_bookings": 15,
+          "label": "2025-12-28"
+        },
+        {
+          "daily_cost": 29105,
+          "daily_bookings": 11,
+          "label": "2025-12-29"
+        },
+        {
+          "daily_cost": 39829,
+          "daily_bookings": 10,
+          "label": "2025-12-30"
+        },
+        {
+          "daily_cost": 17718,
+          "daily_bookings": 16,
+          "label": "2025-12-31"
+        },
+        {
+          "daily_cost": 37892,
+          "daily_bookings": 19,
+          "label": "2026-01-01"
         }
       ]
     }
   ],
   "kpis": [
     {
-      "title": "Total Calls (Mar 2025)",
-      "sql": "SELECT COUNT(*) FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
+      "title": "Total Costs",
+      "sql": "SELECT SUM(amount) FROM costs",
+      "prefix": "$",
+      "format": "compact",
+      "color": "rose",
+      "value": 12469641
+    },
+    {
+      "title": "Total Bookings",
+      "sql": "SELECT COUNT(*) FROM bookings",
       "format": "number",
       "color": "indigo",
-      "value": 434
+      "value": 5000
     },
     {
-      "title": "Avg Duration (Mar 2025)",
-      "sql": "SELECT ROUND(AVG(duration), 1) FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
-      "suffix": "s",
-      "format": "number",
-      "color": "cyan",
-      "value": 1765.3
-    },
-    {
-      "title": "Total Call Minutes",
-      "sql": "SELECT ROUND(SUM(duration) / 60.0, 1) FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
-      "suffix": " min",
-      "format": "number",
-      "color": "emerald",
-      "value": 12769
-    },
-    {
-      "title": "Unique Callers",
-      "sql": "SELECT COUNT(DISTINCT \"from\") FROM calls WHERE date >= '2025-03-01' AND date < '2025-04-01'",
+      "title": "Avg Cost per Booking",
+      "sql": "SELECT ROUND(CAST((SELECT SUM(amount) FROM costs) AS REAL) / NULLIF((SELECT COUNT(*) FROM bookings), 0), 2)",
+      "prefix": "$",
       "format": "number",
       "color": "amber",
-      "value": 425
+      "value": 2493.93
+    },
+    {
+      "title": "Cost Categories",
+      "sql": "SELECT COUNT(DISTINCT category) FROM costs",
+      "format": "number",
+      "color": "emerald",
+      "value": 3
     }
   ]
 }

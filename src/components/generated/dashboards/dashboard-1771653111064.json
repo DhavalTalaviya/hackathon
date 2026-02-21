@@ -1,0 +1,1771 @@
+{
+  "id": "dashboard-1771653111064",
+  "name": "full breakdown",
+  "config": {
+    "charts": [
+      {
+        "type": "AreaChart",
+        "title": "Bookings Over Time",
+        "sql": "SELECT date AS day, COUNT(*) AS bookings FROM bookings GROUP BY date ORDER BY date",
+        "xAxisKey": "day",
+        "series": [
+          {
+            "dataKey": "bookings",
+            "name": "Bookings",
+            "type": "area"
+          }
+        ],
+        "data": [
+          {
+            "day": "2025-01-01",
+            "bookings": 13
+          },
+          {
+            "day": "2025-01-02",
+            "bookings": 14
+          },
+          {
+            "day": "2025-01-03",
+            "bookings": 19
+          },
+          {
+            "day": "2025-01-04",
+            "bookings": 6
+          },
+          {
+            "day": "2025-01-05",
+            "bookings": 17
+          },
+          {
+            "day": "2025-01-06",
+            "bookings": 12
+          },
+          {
+            "day": "2025-01-07",
+            "bookings": 20
+          },
+          {
+            "day": "2025-01-08",
+            "bookings": 9
+          },
+          {
+            "day": "2025-01-09",
+            "bookings": 18
+          },
+          {
+            "day": "2025-01-10",
+            "bookings": 15
+          },
+          {
+            "day": "2025-01-11",
+            "bookings": 17
+          },
+          {
+            "day": "2025-01-12",
+            "bookings": 17
+          },
+          {
+            "day": "2025-01-13",
+            "bookings": 11
+          },
+          {
+            "day": "2025-01-14",
+            "bookings": 8
+          },
+          {
+            "day": "2025-01-15",
+            "bookings": 15
+          },
+          {
+            "day": "2025-01-16",
+            "bookings": 13
+          },
+          {
+            "day": "2025-01-17",
+            "bookings": 19
+          },
+          {
+            "day": "2025-01-18",
+            "bookings": 19
+          },
+          {
+            "day": "2025-01-19",
+            "bookings": 14
+          },
+          {
+            "day": "2025-01-20",
+            "bookings": 12
+          },
+          {
+            "day": "2025-01-21",
+            "bookings": 10
+          },
+          {
+            "day": "2025-01-22",
+            "bookings": 14
+          },
+          {
+            "day": "2025-01-23",
+            "bookings": 13
+          },
+          {
+            "day": "2025-01-24",
+            "bookings": 12
+          },
+          {
+            "day": "2025-01-25",
+            "bookings": 13
+          },
+          {
+            "day": "2025-01-26",
+            "bookings": 13
+          },
+          {
+            "day": "2025-01-27",
+            "bookings": 14
+          },
+          {
+            "day": "2025-01-28",
+            "bookings": 18
+          },
+          {
+            "day": "2025-01-29",
+            "bookings": 17
+          },
+          {
+            "day": "2025-01-30",
+            "bookings": 12
+          },
+          {
+            "day": "2025-01-31",
+            "bookings": 15
+          },
+          {
+            "day": "2025-02-01",
+            "bookings": 15
+          },
+          {
+            "day": "2025-02-02",
+            "bookings": 15
+          },
+          {
+            "day": "2025-02-03",
+            "bookings": 10
+          },
+          {
+            "day": "2025-02-04",
+            "bookings": 7
+          },
+          {
+            "day": "2025-02-05",
+            "bookings": 15
+          },
+          {
+            "day": "2025-02-06",
+            "bookings": 13
+          },
+          {
+            "day": "2025-02-07",
+            "bookings": 13
+          },
+          {
+            "day": "2025-02-08",
+            "bookings": 13
+          },
+          {
+            "day": "2025-02-09",
+            "bookings": 18
+          },
+          {
+            "day": "2025-02-10",
+            "bookings": 17
+          },
+          {
+            "day": "2025-02-11",
+            "bookings": 16
+          },
+          {
+            "day": "2025-02-12",
+            "bookings": 11
+          },
+          {
+            "day": "2025-02-13",
+            "bookings": 17
+          },
+          {
+            "day": "2025-02-14",
+            "bookings": 16
+          },
+          {
+            "day": "2025-02-15",
+            "bookings": 11
+          },
+          {
+            "day": "2025-02-16",
+            "bookings": 14
+          },
+          {
+            "day": "2025-02-17",
+            "bookings": 14
+          },
+          {
+            "day": "2025-02-18",
+            "bookings": 12
+          },
+          {
+            "day": "2025-02-19",
+            "bookings": 7
+          },
+          {
+            "day": "2025-02-20",
+            "bookings": 13
+          },
+          {
+            "day": "2025-02-21",
+            "bookings": 14
+          },
+          {
+            "day": "2025-02-22",
+            "bookings": 14
+          },
+          {
+            "day": "2025-02-23",
+            "bookings": 19
+          },
+          {
+            "day": "2025-02-24",
+            "bookings": 22
+          },
+          {
+            "day": "2025-02-25",
+            "bookings": 11
+          },
+          {
+            "day": "2025-02-26",
+            "bookings": 16
+          },
+          {
+            "day": "2025-02-27",
+            "bookings": 6
+          },
+          {
+            "day": "2025-02-28",
+            "bookings": 8
+          },
+          {
+            "day": "2025-03-01",
+            "bookings": 10
+          },
+          {
+            "day": "2025-03-02",
+            "bookings": 14
+          },
+          {
+            "day": "2025-03-03",
+            "bookings": 5
+          },
+          {
+            "day": "2025-03-04",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-05",
+            "bookings": 9
+          },
+          {
+            "day": "2025-03-06",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-07",
+            "bookings": 12
+          },
+          {
+            "day": "2025-03-08",
+            "bookings": 16
+          },
+          {
+            "day": "2025-03-09",
+            "bookings": 8
+          },
+          {
+            "day": "2025-03-10",
+            "bookings": 23
+          },
+          {
+            "day": "2025-03-11",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-12",
+            "bookings": 17
+          },
+          {
+            "day": "2025-03-13",
+            "bookings": 14
+          },
+          {
+            "day": "2025-03-14",
+            "bookings": 14
+          },
+          {
+            "day": "2025-03-15",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-16",
+            "bookings": 11
+          },
+          {
+            "day": "2025-03-17",
+            "bookings": 12
+          },
+          {
+            "day": "2025-03-18",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-19",
+            "bookings": 16
+          },
+          {
+            "day": "2025-03-20",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-21",
+            "bookings": 13
+          },
+          {
+            "day": "2025-03-22",
+            "bookings": 10
+          },
+          {
+            "day": "2025-03-23",
+            "bookings": 16
+          },
+          {
+            "day": "2025-03-24",
+            "bookings": 19
+          },
+          {
+            "day": "2025-03-25",
+            "bookings": 12
+          },
+          {
+            "day": "2025-03-26",
+            "bookings": 19
+          },
+          {
+            "day": "2025-03-27",
+            "bookings": 14
+          },
+          {
+            "day": "2025-03-28",
+            "bookings": 18
+          },
+          {
+            "day": "2025-03-29",
+            "bookings": 15
+          },
+          {
+            "day": "2025-03-30",
+            "bookings": 15
+          },
+          {
+            "day": "2025-03-31",
+            "bookings": 17
+          },
+          {
+            "day": "2025-04-01",
+            "bookings": 14
+          },
+          {
+            "day": "2025-04-02",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-03",
+            "bookings": 12
+          },
+          {
+            "day": "2025-04-04",
+            "bookings": 19
+          },
+          {
+            "day": "2025-04-05",
+            "bookings": 10
+          },
+          {
+            "day": "2025-04-06",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-07",
+            "bookings": 7
+          },
+          {
+            "day": "2025-04-08",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-09",
+            "bookings": 18
+          },
+          {
+            "day": "2025-04-10",
+            "bookings": 12
+          },
+          {
+            "day": "2025-04-11",
+            "bookings": 15
+          },
+          {
+            "day": "2025-04-12",
+            "bookings": 14
+          },
+          {
+            "day": "2025-04-13",
+            "bookings": 17
+          },
+          {
+            "day": "2025-04-14",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-15",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-16",
+            "bookings": 11
+          },
+          {
+            "day": "2025-04-17",
+            "bookings": 12
+          },
+          {
+            "day": "2025-04-18",
+            "bookings": 10
+          },
+          {
+            "day": "2025-04-19",
+            "bookings": 11
+          },
+          {
+            "day": "2025-04-20",
+            "bookings": 20
+          },
+          {
+            "day": "2025-04-21",
+            "bookings": 10
+          },
+          {
+            "day": "2025-04-22",
+            "bookings": 15
+          },
+          {
+            "day": "2025-04-23",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-24",
+            "bookings": 13
+          },
+          {
+            "day": "2025-04-25",
+            "bookings": 9
+          },
+          {
+            "day": "2025-04-26",
+            "bookings": 14
+          },
+          {
+            "day": "2025-04-27",
+            "bookings": 10
+          },
+          {
+            "day": "2025-04-28",
+            "bookings": 13
+          },
+          {
+            "day": "2025-04-29",
+            "bookings": 14
+          },
+          {
+            "day": "2025-04-30",
+            "bookings": 10
+          },
+          {
+            "day": "2025-05-01",
+            "bookings": 12
+          },
+          {
+            "day": "2025-05-02",
+            "bookings": 11
+          },
+          {
+            "day": "2025-05-03",
+            "bookings": 14
+          },
+          {
+            "day": "2025-05-04",
+            "bookings": 21
+          },
+          {
+            "day": "2025-05-05",
+            "bookings": 14
+          },
+          {
+            "day": "2025-05-06",
+            "bookings": 20
+          },
+          {
+            "day": "2025-05-07",
+            "bookings": 17
+          },
+          {
+            "day": "2025-05-08",
+            "bookings": 6
+          },
+          {
+            "day": "2025-05-09",
+            "bookings": 14
+          },
+          {
+            "day": "2025-05-10",
+            "bookings": 15
+          },
+          {
+            "day": "2025-05-11",
+            "bookings": 12
+          },
+          {
+            "day": "2025-05-12",
+            "bookings": 16
+          },
+          {
+            "day": "2025-05-13",
+            "bookings": 12
+          },
+          {
+            "day": "2025-05-14",
+            "bookings": 15
+          },
+          {
+            "day": "2025-05-15",
+            "bookings": 9
+          },
+          {
+            "day": "2025-05-16",
+            "bookings": 19
+          },
+          {
+            "day": "2025-05-17",
+            "bookings": 11
+          },
+          {
+            "day": "2025-05-18",
+            "bookings": 20
+          },
+          {
+            "day": "2025-05-19",
+            "bookings": 13
+          },
+          {
+            "day": "2025-05-20",
+            "bookings": 15
+          },
+          {
+            "day": "2025-05-21",
+            "bookings": 4
+          },
+          {
+            "day": "2025-05-22",
+            "bookings": 12
+          },
+          {
+            "day": "2025-05-23",
+            "bookings": 16
+          },
+          {
+            "day": "2025-05-24",
+            "bookings": 13
+          },
+          {
+            "day": "2025-05-25",
+            "bookings": 15
+          },
+          {
+            "day": "2025-05-26",
+            "bookings": 14
+          },
+          {
+            "day": "2025-05-27",
+            "bookings": 17
+          },
+          {
+            "day": "2025-05-28",
+            "bookings": 12
+          },
+          {
+            "day": "2025-05-29",
+            "bookings": 8
+          },
+          {
+            "day": "2025-05-30",
+            "bookings": 16
+          },
+          {
+            "day": "2025-05-31",
+            "bookings": 11
+          },
+          {
+            "day": "2025-06-01",
+            "bookings": 11
+          },
+          {
+            "day": "2025-06-02",
+            "bookings": 9
+          },
+          {
+            "day": "2025-06-03",
+            "bookings": 7
+          },
+          {
+            "day": "2025-06-04",
+            "bookings": 20
+          },
+          {
+            "day": "2025-06-05",
+            "bookings": 10
+          },
+          {
+            "day": "2025-06-06",
+            "bookings": 16
+          },
+          {
+            "day": "2025-06-07",
+            "bookings": 19
+          },
+          {
+            "day": "2025-06-08",
+            "bookings": 11
+          },
+          {
+            "day": "2025-06-09",
+            "bookings": 14
+          },
+          {
+            "day": "2025-06-10",
+            "bookings": 20
+          },
+          {
+            "day": "2025-06-11",
+            "bookings": 19
+          },
+          {
+            "day": "2025-06-12",
+            "bookings": 19
+          },
+          {
+            "day": "2025-06-13",
+            "bookings": 14
+          },
+          {
+            "day": "2025-06-14",
+            "bookings": 14
+          },
+          {
+            "day": "2025-06-15",
+            "bookings": 15
+          },
+          {
+            "day": "2025-06-16",
+            "bookings": 13
+          },
+          {
+            "day": "2025-06-17",
+            "bookings": 17
+          },
+          {
+            "day": "2025-06-18",
+            "bookings": 13
+          },
+          {
+            "day": "2025-06-19",
+            "bookings": 12
+          },
+          {
+            "day": "2025-06-20",
+            "bookings": 13
+          },
+          {
+            "day": "2025-06-21",
+            "bookings": 10
+          },
+          {
+            "day": "2025-06-22",
+            "bookings": 10
+          },
+          {
+            "day": "2025-06-23",
+            "bookings": 10
+          },
+          {
+            "day": "2025-06-24",
+            "bookings": 13
+          },
+          {
+            "day": "2025-06-25",
+            "bookings": 10
+          },
+          {
+            "day": "2025-06-26",
+            "bookings": 26
+          },
+          {
+            "day": "2025-06-27",
+            "bookings": 11
+          },
+          {
+            "day": "2025-06-28",
+            "bookings": 12
+          },
+          {
+            "day": "2025-06-29",
+            "bookings": 13
+          },
+          {
+            "day": "2025-06-30",
+            "bookings": 9
+          },
+          {
+            "day": "2025-07-01",
+            "bookings": 10
+          },
+          {
+            "day": "2025-07-02",
+            "bookings": 19
+          },
+          {
+            "day": "2025-07-03",
+            "bookings": 17
+          },
+          {
+            "day": "2025-07-04",
+            "bookings": 13
+          },
+          {
+            "day": "2025-07-05",
+            "bookings": 14
+          },
+          {
+            "day": "2025-07-06",
+            "bookings": 12
+          },
+          {
+            "day": "2025-07-07",
+            "bookings": 12
+          },
+          {
+            "day": "2025-07-08",
+            "bookings": 24
+          },
+          {
+            "day": "2025-07-09",
+            "bookings": 11
+          },
+          {
+            "day": "2025-07-10",
+            "bookings": 22
+          },
+          {
+            "day": "2025-07-11",
+            "bookings": 9
+          },
+          {
+            "day": "2025-07-12",
+            "bookings": 13
+          },
+          {
+            "day": "2025-07-13",
+            "bookings": 15
+          },
+          {
+            "day": "2025-07-14",
+            "bookings": 10
+          },
+          {
+            "day": "2025-07-15",
+            "bookings": 14
+          },
+          {
+            "day": "2025-07-16",
+            "bookings": 20
+          },
+          {
+            "day": "2025-07-17",
+            "bookings": 14
+          },
+          {
+            "day": "2025-07-18",
+            "bookings": 10
+          },
+          {
+            "day": "2025-07-19",
+            "bookings": 15
+          },
+          {
+            "day": "2025-07-20",
+            "bookings": 14
+          },
+          {
+            "day": "2025-07-21",
+            "bookings": 17
+          },
+          {
+            "day": "2025-07-22",
+            "bookings": 20
+          },
+          {
+            "day": "2025-07-23",
+            "bookings": 10
+          },
+          {
+            "day": "2025-07-24",
+            "bookings": 7
+          },
+          {
+            "day": "2025-07-25",
+            "bookings": 8
+          },
+          {
+            "day": "2025-07-26",
+            "bookings": 13
+          },
+          {
+            "day": "2025-07-27",
+            "bookings": 14
+          },
+          {
+            "day": "2025-07-28",
+            "bookings": 12
+          },
+          {
+            "day": "2025-07-29",
+            "bookings": 17
+          },
+          {
+            "day": "2025-07-30",
+            "bookings": 12
+          },
+          {
+            "day": "2025-07-31",
+            "bookings": 14
+          },
+          {
+            "day": "2025-08-01",
+            "bookings": 13
+          },
+          {
+            "day": "2025-08-02",
+            "bookings": 19
+          },
+          {
+            "day": "2025-08-03",
+            "bookings": 10
+          },
+          {
+            "day": "2025-08-04",
+            "bookings": 16
+          },
+          {
+            "day": "2025-08-05",
+            "bookings": 13
+          },
+          {
+            "day": "2025-08-06",
+            "bookings": 21
+          },
+          {
+            "day": "2025-08-07",
+            "bookings": 19
+          },
+          {
+            "day": "2025-08-08",
+            "bookings": 11
+          },
+          {
+            "day": "2025-08-09",
+            "bookings": 8
+          },
+          {
+            "day": "2025-08-10",
+            "bookings": 11
+          },
+          {
+            "day": "2025-08-11",
+            "bookings": 13
+          },
+          {
+            "day": "2025-08-12",
+            "bookings": 13
+          },
+          {
+            "day": "2025-08-13",
+            "bookings": 22
+          },
+          {
+            "day": "2025-08-14",
+            "bookings": 10
+          },
+          {
+            "day": "2025-08-15",
+            "bookings": 15
+          },
+          {
+            "day": "2025-08-16",
+            "bookings": 14
+          },
+          {
+            "day": "2025-08-17",
+            "bookings": 9
+          },
+          {
+            "day": "2025-08-18",
+            "bookings": 16
+          },
+          {
+            "day": "2025-08-19",
+            "bookings": 6
+          },
+          {
+            "day": "2025-08-20",
+            "bookings": 10
+          },
+          {
+            "day": "2025-08-21",
+            "bookings": 12
+          },
+          {
+            "day": "2025-08-22",
+            "bookings": 11
+          },
+          {
+            "day": "2025-08-23",
+            "bookings": 11
+          },
+          {
+            "day": "2025-08-24",
+            "bookings": 18
+          },
+          {
+            "day": "2025-08-25",
+            "bookings": 13
+          },
+          {
+            "day": "2025-08-26",
+            "bookings": 18
+          },
+          {
+            "day": "2025-08-27",
+            "bookings": 11
+          },
+          {
+            "day": "2025-08-28",
+            "bookings": 14
+          },
+          {
+            "day": "2025-08-29",
+            "bookings": 13
+          },
+          {
+            "day": "2025-08-30",
+            "bookings": 17
+          },
+          {
+            "day": "2025-08-31",
+            "bookings": 19
+          },
+          {
+            "day": "2025-09-01",
+            "bookings": 21
+          },
+          {
+            "day": "2025-09-02",
+            "bookings": 16
+          },
+          {
+            "day": "2025-09-03",
+            "bookings": 18
+          },
+          {
+            "day": "2025-09-04",
+            "bookings": 10
+          },
+          {
+            "day": "2025-09-05",
+            "bookings": 11
+          },
+          {
+            "day": "2025-09-06",
+            "bookings": 10
+          },
+          {
+            "day": "2025-09-07",
+            "bookings": 14
+          },
+          {
+            "day": "2025-09-08",
+            "bookings": 16
+          },
+          {
+            "day": "2025-09-09",
+            "bookings": 14
+          },
+          {
+            "day": "2025-09-10",
+            "bookings": 11
+          },
+          {
+            "day": "2025-09-11",
+            "bookings": 6
+          },
+          {
+            "day": "2025-09-12",
+            "bookings": 13
+          },
+          {
+            "day": "2025-09-13",
+            "bookings": 17
+          },
+          {
+            "day": "2025-09-14",
+            "bookings": 17
+          },
+          {
+            "day": "2025-09-15",
+            "bookings": 9
+          },
+          {
+            "day": "2025-09-16",
+            "bookings": 9
+          },
+          {
+            "day": "2025-09-17",
+            "bookings": 19
+          },
+          {
+            "day": "2025-09-18",
+            "bookings": 17
+          },
+          {
+            "day": "2025-09-19",
+            "bookings": 12
+          },
+          {
+            "day": "2025-09-20",
+            "bookings": 18
+          },
+          {
+            "day": "2025-09-21",
+            "bookings": 18
+          },
+          {
+            "day": "2025-09-22",
+            "bookings": 20
+          },
+          {
+            "day": "2025-09-23",
+            "bookings": 15
+          },
+          {
+            "day": "2025-09-24",
+            "bookings": 13
+          },
+          {
+            "day": "2025-09-25",
+            "bookings": 12
+          },
+          {
+            "day": "2025-09-26",
+            "bookings": 9
+          },
+          {
+            "day": "2025-09-27",
+            "bookings": 18
+          },
+          {
+            "day": "2025-09-28",
+            "bookings": 12
+          },
+          {
+            "day": "2025-09-29",
+            "bookings": 8
+          },
+          {
+            "day": "2025-09-30",
+            "bookings": 8
+          },
+          {
+            "day": "2025-10-01",
+            "bookings": 16
+          },
+          {
+            "day": "2025-10-02",
+            "bookings": 18
+          },
+          {
+            "day": "2025-10-03",
+            "bookings": 12
+          },
+          {
+            "day": "2025-10-04",
+            "bookings": 14
+          },
+          {
+            "day": "2025-10-05",
+            "bookings": 11
+          },
+          {
+            "day": "2025-10-06",
+            "bookings": 16
+          },
+          {
+            "day": "2025-10-07",
+            "bookings": 20
+          },
+          {
+            "day": "2025-10-08",
+            "bookings": 19
+          },
+          {
+            "day": "2025-10-09",
+            "bookings": 18
+          },
+          {
+            "day": "2025-10-10",
+            "bookings": 8
+          },
+          {
+            "day": "2025-10-11",
+            "bookings": 14
+          },
+          {
+            "day": "2025-10-12",
+            "bookings": 12
+          },
+          {
+            "day": "2025-10-13",
+            "bookings": 13
+          },
+          {
+            "day": "2025-10-14",
+            "bookings": 17
+          },
+          {
+            "day": "2025-10-15",
+            "bookings": 16
+          },
+          {
+            "day": "2025-10-16",
+            "bookings": 16
+          },
+          {
+            "day": "2025-10-17",
+            "bookings": 11
+          },
+          {
+            "day": "2025-10-18",
+            "bookings": 15
+          },
+          {
+            "day": "2025-10-19",
+            "bookings": 14
+          },
+          {
+            "day": "2025-10-20",
+            "bookings": 20
+          },
+          {
+            "day": "2025-10-21",
+            "bookings": 25
+          },
+          {
+            "day": "2025-10-22",
+            "bookings": 12
+          },
+          {
+            "day": "2025-10-23",
+            "bookings": 14
+          },
+          {
+            "day": "2025-10-24",
+            "bookings": 16
+          },
+          {
+            "day": "2025-10-25",
+            "bookings": 9
+          },
+          {
+            "day": "2025-10-26",
+            "bookings": 12
+          },
+          {
+            "day": "2025-10-27",
+            "bookings": 15
+          },
+          {
+            "day": "2025-10-28",
+            "bookings": 8
+          },
+          {
+            "day": "2025-10-29",
+            "bookings": 9
+          },
+          {
+            "day": "2025-10-30",
+            "bookings": 14
+          },
+          {
+            "day": "2025-10-31",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-01",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-02",
+            "bookings": 15
+          },
+          {
+            "day": "2025-11-03",
+            "bookings": 10
+          },
+          {
+            "day": "2025-11-04",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-05",
+            "bookings": 9
+          },
+          {
+            "day": "2025-11-06",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-07",
+            "bookings": 16
+          },
+          {
+            "day": "2025-11-08",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-09",
+            "bookings": 15
+          },
+          {
+            "day": "2025-11-10",
+            "bookings": 12
+          },
+          {
+            "day": "2025-11-11",
+            "bookings": 16
+          },
+          {
+            "day": "2025-11-12",
+            "bookings": 15
+          },
+          {
+            "day": "2025-11-13",
+            "bookings": 9
+          },
+          {
+            "day": "2025-11-14",
+            "bookings": 13
+          },
+          {
+            "day": "2025-11-15",
+            "bookings": 16
+          },
+          {
+            "day": "2025-11-16",
+            "bookings": 21
+          },
+          {
+            "day": "2025-11-17",
+            "bookings": 23
+          },
+          {
+            "day": "2025-11-18",
+            "bookings": 11
+          },
+          {
+            "day": "2025-11-19",
+            "bookings": 11
+          },
+          {
+            "day": "2025-11-20",
+            "bookings": 13
+          },
+          {
+            "day": "2025-11-21",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-22",
+            "bookings": 13
+          },
+          {
+            "day": "2025-11-23",
+            "bookings": 12
+          },
+          {
+            "day": "2025-11-24",
+            "bookings": 15
+          },
+          {
+            "day": "2025-11-25",
+            "bookings": 17
+          },
+          {
+            "day": "2025-11-26",
+            "bookings": 15
+          },
+          {
+            "day": "2025-11-27",
+            "bookings": 11
+          },
+          {
+            "day": "2025-11-28",
+            "bookings": 14
+          },
+          {
+            "day": "2025-11-29",
+            "bookings": 11
+          },
+          {
+            "day": "2025-11-30",
+            "bookings": 16
+          },
+          {
+            "day": "2025-12-01",
+            "bookings": 11
+          },
+          {
+            "day": "2025-12-02",
+            "bookings": 17
+          },
+          {
+            "day": "2025-12-03",
+            "bookings": 10
+          },
+          {
+            "day": "2025-12-04",
+            "bookings": 13
+          },
+          {
+            "day": "2025-12-05",
+            "bookings": 10
+          },
+          {
+            "day": "2025-12-06",
+            "bookings": 14
+          },
+          {
+            "day": "2025-12-07",
+            "bookings": 13
+          },
+          {
+            "day": "2025-12-08",
+            "bookings": 12
+          },
+          {
+            "day": "2025-12-09",
+            "bookings": 20
+          },
+          {
+            "day": "2025-12-10",
+            "bookings": 15
+          },
+          {
+            "day": "2025-12-11",
+            "bookings": 15
+          },
+          {
+            "day": "2025-12-12",
+            "bookings": 10
+          },
+          {
+            "day": "2025-12-13",
+            "bookings": 14
+          },
+          {
+            "day": "2025-12-14",
+            "bookings": 20
+          },
+          {
+            "day": "2025-12-15",
+            "bookings": 15
+          },
+          {
+            "day": "2025-12-16",
+            "bookings": 10
+          },
+          {
+            "day": "2025-12-17",
+            "bookings": 8
+          },
+          {
+            "day": "2025-12-18",
+            "bookings": 14
+          },
+          {
+            "day": "2025-12-19",
+            "bookings": 11
+          },
+          {
+            "day": "2025-12-20",
+            "bookings": 8
+          },
+          {
+            "day": "2025-12-21",
+            "bookings": 14
+          },
+          {
+            "day": "2025-12-22",
+            "bookings": 17
+          },
+          {
+            "day": "2025-12-23",
+            "bookings": 8
+          },
+          {
+            "day": "2025-12-24",
+            "bookings": 9
+          },
+          {
+            "day": "2025-12-25",
+            "bookings": 14
+          },
+          {
+            "day": "2025-12-26",
+            "bookings": 13
+          },
+          {
+            "day": "2025-12-27",
+            "bookings": 17
+          },
+          {
+            "day": "2025-12-28",
+            "bookings": 15
+          },
+          {
+            "day": "2025-12-29",
+            "bookings": 11
+          },
+          {
+            "day": "2025-12-30",
+            "bookings": 10
+          },
+          {
+            "day": "2025-12-31",
+            "bookings": 16
+          },
+          {
+            "day": "2026-01-01",
+            "bookings": 19
+          }
+        ]
+      },
+      {
+        "type": "PieChart",
+        "title": "Booking Status Distribution",
+        "sql": "SELECT status AS category, COUNT(*) AS value FROM bookings GROUP BY status ORDER BY value DESC",
+        "nameKey": "category",
+        "dataKey": "value",
+        "data": [
+          {
+            "category": "cancelled",
+            "value": 1726
+          },
+          {
+            "category": "pending",
+            "value": 1655
+          },
+          {
+            "category": "confirmed",
+            "value": 1619
+          }
+        ]
+      },
+      {
+        "type": "Treemap",
+        "title": "Cost Breakdown by Category",
+        "sql": "SELECT category AS category, SUM(amount) AS value FROM costs GROUP BY category ORDER BY value DESC",
+        "nameKey": "category",
+        "series": [
+          {
+            "dataKey": "value",
+            "name": "Total Cost"
+          }
+        ],
+        "data": [
+          {
+            "category": "Software",
+            "value": 4285872
+          },
+          {
+            "category": "Infrastructure",
+            "value": 4162992
+          },
+          {
+            "category": "Marketing",
+            "value": 4020777
+          }
+        ]
+      },
+      {
+        "type": "ComposedChart",
+        "title": "Monthly Calls Volume & Avg Duration",
+        "sql": "SELECT SUBSTR(c.date, 1, 7) AS month, COUNT(*) AS total_calls, ROUND(AVG(c.duration), 1) AS avg_duration FROM calls c GROUP BY SUBSTR(c.date, 1, 7) ORDER BY month",
+        "xAxisKey": "month",
+        "series": [
+          {
+            "dataKey": "total_calls",
+            "name": "Total Calls",
+            "type": "bar"
+          },
+          {
+            "dataKey": "avg_duration",
+            "name": "Avg Duration (min)",
+            "type": "line"
+          }
+        ],
+        "data": [
+          {
+            "month": "2025-01",
+            "total_calls": 402,
+            "avg_duration": 1846.1
+          },
+          {
+            "month": "2025-02",
+            "total_calls": 402,
+            "avg_duration": 1713.5
+          },
+          {
+            "month": "2025-03",
+            "total_calls": 434,
+            "avg_duration": 1765.3
+          },
+          {
+            "month": "2025-04",
+            "total_calls": 376,
+            "avg_duration": 1784.7
+          },
+          {
+            "month": "2025-05",
+            "total_calls": 444,
+            "avg_duration": 1815
+          },
+          {
+            "month": "2025-06",
+            "total_calls": 435,
+            "avg_duration": 1781.1
+          },
+          {
+            "month": "2025-07",
+            "total_calls": 411,
+            "avg_duration": 1795.1
+          },
+          {
+            "month": "2025-08",
+            "total_calls": 432,
+            "avg_duration": 1813.7
+          },
+          {
+            "month": "2025-09",
+            "total_calls": 391,
+            "avg_duration": 1873
+          },
+          {
+            "month": "2025-10",
+            "total_calls": 442,
+            "avg_duration": 1761.3
+          },
+          {
+            "month": "2025-11",
+            "total_calls": 406,
+            "avg_duration": 1793.5
+          },
+          {
+            "month": "2025-12",
+            "total_calls": 410,
+            "avg_duration": 1775.6
+          },
+          {
+            "month": "2026-01",
+            "total_calls": 15,
+            "avg_duration": 1767.9
+          }
+        ]
+      },
+      {
+        "type": "BarChart",
+        "title": "Top 10 Customers by Bookings",
+        "sql": "SELECT customer AS customer_name, COUNT(*) AS bookings FROM bookings GROUP BY customer ORDER BY bookings DESC LIMIT 10",
+        "xAxisKey": "customer_name",
+        "series": [
+          {
+            "dataKey": "bookings",
+            "name": "Bookings"
+          }
+        ],
+        "data": [
+          {
+            "customer_name": "StartupX",
+            "bookings": 357
+          },
+          {
+            "customer_name": "Acme Corp",
+            "bookings": 351
+          },
+          {
+            "customer_name": "Innovate Ltd",
+            "bookings": 350
+          },
+          {
+            "customer_name": "CloudTech",
+            "bookings": 345
+          },
+          {
+            "customer_name": "Future Systems",
+            "bookings": 343
+          },
+          {
+            "customer_name": "Pioneer Systems",
+            "bookings": 342
+          },
+          {
+            "customer_name": "MegaCorp",
+            "bookings": 341
+          },
+          {
+            "customer_name": "Global Inc",
+            "bookings": 340
+          },
+          {
+            "customer_name": "Digital Solutions",
+            "bookings": 337
+          },
+          {
+            "customer_name": "Enterprise Co",
+            "bookings": 334
+          }
+        ]
+      },
+      {
+        "type": "LineChart",
+        "title": "Monthly Cost Trend",
+        "sql": "SELECT SUBSTR(c.date, 1, 7) AS month, SUM(c.amount) AS total_cost FROM costs c GROUP BY SUBSTR(c.date, 1, 7) ORDER BY month",
+        "xAxisKey": "month",
+        "series": [
+          {
+            "dataKey": "total_cost",
+            "name": "Total Cost"
+          }
+        ],
+        "data": [
+          {
+            "month": "2025-01",
+            "total_cost": 1076251
+          },
+          {
+            "month": "2025-02",
+            "total_cost": 936310
+          },
+          {
+            "month": "2025-03",
+            "total_cost": 906303
+          },
+          {
+            "month": "2025-04",
+            "total_cost": 1053668
+          },
+          {
+            "month": "2025-05",
+            "total_cost": 1014573
+          },
+          {
+            "month": "2025-06",
+            "total_cost": 993195
+          },
+          {
+            "month": "2025-07",
+            "total_cost": 1076125
+          },
+          {
+            "month": "2025-08",
+            "total_cost": 1123526
+          },
+          {
+            "month": "2025-09",
+            "total_cost": 1089809
+          },
+          {
+            "month": "2025-10",
+            "total_cost": 1018384
+          },
+          {
+            "month": "2025-11",
+            "total_cost": 1117610
+          },
+          {
+            "month": "2025-12",
+            "total_cost": 1025995
+          },
+          {
+            "month": "2026-01",
+            "total_cost": 37892
+          }
+        ]
+      }
+    ],
+    "kpis": [
+      {
+        "title": "Total Bookings",
+        "sql": "SELECT COUNT(*) FROM bookings",
+        "format": "number",
+        "color": "indigo",
+        "value": 5000
+      },
+      {
+        "title": "Total Costs",
+        "sql": "SELECT ROUND(SUM(amount), 2) FROM costs",
+        "prefix": "$",
+        "format": "compact",
+        "color": "rose",
+        "value": 12469641
+      },
+      {
+        "title": "Total Calls",
+        "sql": "SELECT COUNT(*) FROM calls",
+        "format": "number",
+        "color": "cyan",
+        "value": 5000
+      },
+      {
+        "title": "Avg Call Duration",
+        "sql": "SELECT ROUND(AVG(duration), 1) FROM calls",
+        "suffix": " min",
+        "format": "number",
+        "color": "amber",
+        "value": 1792.7
+      }
+    ]
+  }
+}

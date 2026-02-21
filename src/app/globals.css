@@ -24,3 +24,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   @apply antialiased;
 }
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  /* Ensure charts don't break across pages */
+  .recharts-wrapper {
+    page-break-inside: avoid;
+  }
+
+  /* Some extra print formatting if needed */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
