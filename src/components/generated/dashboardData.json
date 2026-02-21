@@ -1,13 +1,22 @@
 [
   {
-    "total_bookings": 5000,
-    "confirmed": 1619,
-    "cancelled": 1726,
-    "pending": 1655,
-    "unique_customers": 15,
-    "earliest_booking": "2025-01-01",
-    "latest_booking": "2026-01-01",
-    "confirmation_rate_pct": 32.38,
-    "cancellation_rate_pct": 34.52
+    "source": "calls",
+    "total_count": 5000,
+    "inbound_calls": 0,
+    "outbound_calls": 0,
+    "avg_call_duration": 1792.72,
+    "confirmed_bookings": null,
+    "cancelled_bookings": null,
+    "pending_bookings": null
+  },
+  {
+    "source": "bookings",
+    "total_count": 5000,
+    "inbound_calls": null,
+    "outbound_calls": null,
+    "avg_call_duration": null,
+    "confirmed_bookings": 1619,
+    "cancelled_bookings": 1726,
+    "pending_bookings": 1655
   }
 ]

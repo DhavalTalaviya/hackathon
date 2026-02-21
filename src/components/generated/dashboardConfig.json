@@ -1,0 +1,169 @@
+{
+  "charts": [
+    {
+      "type": "PieChart",
+      "title": "Bookings by Status",
+      "dataKey": "value",
+      "nameKey": "category",
+      "data": [
+        {
+          "category": "cancelled",
+          "value": 1726
+        },
+        {
+          "category": "pending",
+          "value": 1655
+        },
+        {
+          "category": "confirmed",
+          "value": 1619
+        }
+      ]
+    },
+    {
+      "type": "BarChart",
+      "title": "Bookings by Customer (Top 10)",
+      "xAxisKey": "customer",
+      "series": [
+        {
+          "dataKey": "total_bookings",
+          "name": "Total Bookings"
+        }
+      ],
+      "data": [
+        {
+          "customer": "StartupX",
+          "total_bookings": 357
+        },
+        {
+          "customer": "Acme Corp",
+          "total_bookings": 351
+        },
+        {
+          "customer": "Innovate Ltd",
+          "total_bookings": 350
+        },
+        {
+          "customer": "CloudTech",
+          "total_bookings": 345
+        },
+        {
+          "customer": "Future Systems",
+          "total_bookings": 343
+        },
+        {
+          "customer": "Pioneer Systems",
+          "total_bookings": 342
+        },
+        {
+          "customer": "MegaCorp",
+          "total_bookings": 341
+        },
+        {
+          "customer": "Global Inc",
+          "total_bookings": 340
+        },
+        {
+          "customer": "Digital Solutions",
+          "total_bookings": 337
+        },
+        {
+          "customer": "Enterprise Co",
+          "total_bookings": 334
+        }
+      ]
+    },
+    {
+      "type": "AreaChart",
+      "title": "Bookings Trend Over Time",
+      "xAxisKey": "month",
+      "series": [
+        {
+          "dataKey": "bookings_count",
+          "name": "Bookings",
+          "type": "area"
+        }
+      ],
+      "data": [
+        {
+          "month": "2025-01",
+          "bookings_count": 439
+        },
+        {
+          "month": "2025-02",
+          "bookings_count": 377
+        },
+        {
+          "month": "2025-03",
+          "bookings_count": 427
+        },
+        {
+          "month": "2025-04",
+          "bookings_count": 364
+        },
+        {
+          "month": "2025-05",
+          "bookings_count": 424
+        },
+        {
+          "month": "2025-06",
+          "bookings_count": 410
+        },
+        {
+          "month": "2025-07",
+          "bookings_count": 432
+        },
+        {
+          "month": "2025-08",
+          "bookings_count": 426
+        },
+        {
+          "month": "2025-09",
+          "bookings_count": 411
+        },
+        {
+          "month": "2025-10",
+          "bookings_count": 448
+        },
+        {
+          "month": "2025-11",
+          "bookings_count": 419
+        },
+        {
+          "month": "2025-12",
+          "bookings_count": 404
+        },
+        {
+          "month": "2026-01",
+          "bookings_count": 19
+        }
+      ]
+    }
+  ],
+  "kpis": [
+    {
+      "title": "Total Bookings",
+      "format": "number",
+      "color": "indigo",
+      "value": 5000
+    },
+    {
+      "title": "Confirmed Bookings",
+      "format": "number",
+      "color": "emerald",
+      "value": 1619
+    },
+    {
+      "title": "Cancelled Bookings",
+      "format": "number",
+      "color": "rose",
+      "value": 1726
+    },
+    {
+      "title": "Unique Customers",
+      "format": "number",
+      "color": "cyan",
+      "value": 15
+    }
+  ]
+}

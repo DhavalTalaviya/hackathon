@@ -7,15 +7,33 @@ import { ArrowLeft } from 'lucide-react';
 import DashboardShell from '@/components/DashboardShell';
 import ChartPanel from '@/components/generated/ChartPanel';
 
+import { DashboardConfig } from '@/components/dashboard/DynamicDashboard';
+
 export default function DashboardPage() {
-    const [data, setData] = useState<any[]>([]);
+    const [config, setConfig] = useState<DashboardConfig | null>(null);
 
     useEffect(() => {
-        // Dynamically load the data file
-        import('@/components/generated/dashboardData.json')
-            .then((mod) => setData(mod.default || []))
-            .catch(() => setData([]));
+        const loadConfig = async () => {
+            try {
+                const res = await fetch(`/api/config?t=${Date.now()}`);
+                const data = await res.json();
+                setConfig(data as DashboardConfig);
+            } catch (err) {
+                console.error("Failed to load config", err);
+                // @ts-ignore
+                setConfig({ charts: [], kpis: [] });
+            }
+        };
+        loadConfig();
     }, []);
+
+    if (!config) {
+        return (
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500 mb-4"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -28,14 +46,13 @@ export default function DashboardPage() {
                 </Link>
             </div>
             <DashboardShell
-                data={data}
+                config={config}
                 title="AI Analytics Dashboard"
                 subtitle="Comprehensive data breakdown and trend analysis"
             >
-                {({ filteredData, allCategories, colors }) => (
+                {({ colors }) => (
                     <ChartPanel
-                        data={filteredData}
-                        allCategories={allCategories}
+                        config={config}
                         colors={colors}
                     />
                 )}

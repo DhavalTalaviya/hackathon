@@ -4,7 +4,6 @@ import path from 'path';
 import { getAction } from '@/lib/agents/ActionAgent';
 import { getResponse } from '@/lib/agents/ResponseAgent';
 import { getDataAnalysis } from '@/lib/agents/DataAnalystAgent';
-import { getDashboardCode } from '@/lib/agents/CodeWriterAgent';
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,42 +29,39 @@ export async function POST(req: NextRequest) {
         action.toLowerCase().includes('show') ||
         action.toLowerCase().includes('get')
       ) {
-      console.log('Routing to Data Analyst...');
+      console.log('Routing to Data Analyst (Multi-Query)...');
       const analysisResult = await getDataAnalysis(messages[messages.length - 1].content);
-      console.log('Analysis Result:', analysisResult);
 
       if (analysisResult.error) {
         return NextResponse.json({ role: 'assistant', content: "I couldn't analyze the data: " + analysisResult.error });
       }
 
-      console.log('Routing to Code Writer...');
-      const { code, data } = await getDashboardCode(messages[messages.length - 1].content, analysisResult);
+      if (!analysisResult.configString) {
+        return NextResponse.json({ role: 'assistant', content: "I couldn't generate the dashboard configuration." });
+      }
 
-      // Save the chart panel component to disk
       try {
-        const componentPath = path.join(process.cwd(), 'src', 'components', 'generated', 'ChartPanel.tsx');
-        const componentDir = path.dirname(componentPath);
+        const componentDir = path.join(process.cwd(), 'src', 'components', 'generated');
         
         if (!fs.existsSync(componentDir)) {
           fs.mkdirSync(componentDir, { recursive: true });
         }
 
-        fs.writeFileSync(componentPath, code);
-        console.log(`ChartPanel component saved to ${componentPath}`);
+        // Save the JSON configuration (with embedded data arrays per chart)
+        const configPath = path.join(componentDir, 'dashboardConfig.json');
+        fs.writeFileSync(configPath, analysisResult.configString);
+        console.log(`Dashboard config saved to ${configPath}`);
 
-        // Save the data separately so the shell can load it
-        const dataPath = path.join(process.cwd(), 'src', 'components', 'generated', 'dashboardData.json');
-        fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
-        console.log(`Dashboard data saved to ${dataPath}`);
+        // We no longer need to save an external dashboardData.json since the config holds everything internally
       } catch (err) {
-        console.error('Error writing chart panel component:', err);
+        console.error('Error writing dashboard files:', err);
       }
       
-      // Return a special structured response for the frontend to render the component
+      // Return a special structured response for the frontend
       return NextResponse.json({ 
         role: 'assistant', 
-        content: "I have analyzed the data and generated a dashboard for you.",
-        componentCode: code,
+        content: "I have analyzed the data and generated a customized dynamic dashboard for you.",
+        componentCode: analysisResult.configString,
         dataviz: true
       });
     }
