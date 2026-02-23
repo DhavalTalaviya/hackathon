@@ -19,7 +19,11 @@ The Dynamic AI Dashboard allows users to ask natural language questions about th
 
 Users interact with the system via a modern chat interface. After asking a query (e.g. "Give me a full business health breakdown"), the AI processes the context, constructs the views, and an animated dashboard immediately materializes.
 
-Crucially, the interaction doesn't stop at generation. We recognized that waiting for a Slow LLM on every exploratory click is a poor UX. To solve this, we implemented **instant local cross-filtering**. When a user spots an interesting metric and clicks on a chart segment (like a slice on a Pie chart), the dashboard applies the clicked dimension as a global filter and instantly re-filters all charts across the board *locally*—without making another LLM generation request.
+**Iterative Conversations & Contextual Memory:** Generating a dashboard is just the beginning. The user can converse with the AI to refine what's on the screen (e.g., "Change the first chart to a pie chart", or "Filter this by cancelled only"). The system reads the *current dashboard configuration*, sends the schema to the LLM alongside the chat history, and the LLM selectively mutates the dashboard layout.
+- **Intelligent Responses:** The AI generates custom conversational responses natively with the JSON payload.
+- **In-Place UI Refresh:** Chat commands trigger a fast refresh event under the hood. The dashboard configuration instantly updates on the screen without a jarring page reload.
+
+Crucially, the interaction doesn't stop at generation or conversational iteration. We recognized that waiting for a Slow LLM on every exploratory click is a poor UX. To solve this, we implemented **instant local cross-filtering**. When a user spots an interesting metric and clicks on a chart segment (like a slice on a Pie chart), the dashboard applies the clicked dimension as a global filter and instantly re-filters all charts across the board *locally*—without making another LLM generation request.
 
 #### What makes it special?
 
