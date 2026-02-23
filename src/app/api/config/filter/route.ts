@@ -76,9 +76,8 @@ export async function POST(request: Request) {
                     const stmt = db.prepare(filteredSql);
                     chart.data = stmt.all();
                 } catch (dbError) {
-                    console.error(`Error executing filtered SQL for chart ${chart.title}:`, (dbError as Error).message);
-                    chart.error = "Error executing filtered chart query";
-                    // keep old data fallback
+                    console.warn(`[Local Filter] Skipping filter for chart '${chart.title}' due to incompatible SQL: ${(dbError as Error).message}`);
+                    // keep old data fallback by not mutating chart.data and not setting chart.error
                 }
             } else {
                 console.warn(`Chart ${chart.title} is missing cached SQL. Cannot apply local filter.`);
@@ -103,8 +102,8 @@ export async function POST(request: Request) {
                         kpi.value = 0;
                     }
                 } catch (dbError) {
-                    console.error(`Error executing filtered SQL for KPI ${kpi.title}:`, (dbError as Error).message);
-                    kpi.value = "Error";
+                    console.warn(`[Local Filter] Skipping filter for KPI '${kpi.title}' due to incompatible SQL: ${(dbError as Error).message}`);
+                    // keep old kpi.value
                 }
             }
             return kpi;

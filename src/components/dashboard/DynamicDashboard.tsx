@@ -94,10 +94,12 @@ export default function DynamicDashboard({
     onChartClick,
 }: DynamicDashboardProps) {
 
-    const handleChartClick = (data: any, chartTitle: string) => {
+    const handleChartClick = (data: any, chart: ChartConfig) => {
         if (!onChartClick || !data) return;
 
         let label = "";
+        const column = chart.xAxisKey || chart.nameKey || "category";
+
         if (data.activeLabel) {
             label = data.activeLabel;
         } else if (data.activePayload && data.activePayload.length > 0) {
@@ -108,7 +110,8 @@ export default function DynamicDashboard({
         }
 
         if (label) {
-            onChartClick(`Drill down into "${chartTitle}" for: ${label}`);
+            const safeLabel = String(label).replace(/'/g, "''");
+            onChartClick(`"${column}" = '${safeLabel}'`);
         }
     };
 
@@ -148,7 +151,7 @@ export default function DynamicDashboard({
             case "BarChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={chartData} onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <BarChart data={chartData} onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
                             <XAxis dataKey={chart.xAxisKey} stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
                             <YAxis stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
@@ -164,7 +167,7 @@ export default function DynamicDashboard({
             case "LineChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={chartData} onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <LineChart data={chartData} onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
                             <XAxis dataKey={chart.xAxisKey} stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
                             <YAxis stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
@@ -189,7 +192,7 @@ export default function DynamicDashboard({
             case "AreaChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <AreaChart data={chartData} onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <AreaChart data={chartData} onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
                             <XAxis dataKey={chart.xAxisKey} stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
                             <YAxis stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
@@ -214,7 +217,7 @@ export default function DynamicDashboard({
             case "PieChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <PieChart onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <PieChart onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <Pie
                                 data={chartData}
                                 cx="50%"
@@ -238,7 +241,7 @@ export default function DynamicDashboard({
             case "RadarChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chartData} onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chartData} onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <PolarGrid stroke="#374151" />
                             <PolarAngleAxis dataKey={chart.nameKey || chart.xAxisKey || "subject"} tick={{ fill: "#9CA3AF", fontSize: 12 }} />
                             <PolarRadiusAxis angle={30} domain={[0, 'auto']} tick={{ fill: "#9CA3AF" }} />
@@ -261,7 +264,7 @@ export default function DynamicDashboard({
             case "ComposedChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <ComposedChart data={chartData} onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <ComposedChart data={chartData} onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
                             <XAxis dataKey={chart.xAxisKey} stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
                             <YAxis stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
@@ -283,7 +286,7 @@ export default function DynamicDashboard({
             case "ScatterChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <ScatterChart onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <ScatterChart onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
                             <XAxis dataKey={chart.xAxisKey} type="category" name={chart.xAxisKey} stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />
                             {chart.yAxisKey && <YAxis dataKey={chart.yAxisKey} type="number" name={chart.yAxisKey} stroke="#9CA3AF" fontSize={12} tickLine={false} axisLine={false} />}
@@ -300,7 +303,7 @@ export default function DynamicDashboard({
             case "RadialBarChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <RadialBarChart cx="50%" cy="50%" innerRadius="20%" outerRadius="100%" barSize={20} data={chartData} onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <RadialBarChart cx="50%" cy="50%" innerRadius="20%" outerRadius="100%" barSize={20} data={chartData} onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <RadialBar
                                 label={{ position: 'insideStart', fill: '#fff' }}
                                 background={{ fill: '#374151' }}
@@ -321,7 +324,7 @@ export default function DynamicDashboard({
                             nameKey={chart.nameKey || "name"}
                             aspectRatio={4 / 3}
                             stroke="#1f2937"
-                            onClick={(data: any) => handleChartClick(data, chart.title)}
+                            onClick={(data: any) => handleChartClick(data, chart)}
                             className={onChartClick ? "cursor-pointer" : ""}
                         >
                             <Tooltip content={<CustomTooltip />} />
@@ -332,7 +335,7 @@ export default function DynamicDashboard({
             case "FunnelChart":
                 return (
                     <ResponsiveContainer width="100%" height={300}>
-                        <FunnelChart onClick={(data: any) => handleChartClick(data, chart.title)} className={onChartClick ? "cursor-pointer" : ""}>
+                        <FunnelChart onClick={(data: any) => handleChartClick(data, chart)} className={onChartClick ? "cursor-pointer" : ""}>
                             <Tooltip content={<CustomTooltip />} />
                             <Funnel
                                 dataKey={chart.series?.[0]?.dataKey || "value"}

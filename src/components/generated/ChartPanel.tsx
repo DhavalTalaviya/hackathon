@@ -16,7 +16,7 @@ export default function ChartPanel({
   if (!config) return null;
 
   const handleChartClick = (query: string) => {
-    window.dispatchEvent(new CustomEvent("trigger-chat", { detail: query }));
+    window.dispatchEvent(new CustomEvent("apply-local-filter", { detail: query }));
   };
 
   return (

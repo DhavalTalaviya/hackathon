@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     DollarSign,
     TrendingUp,
@@ -99,6 +99,31 @@ export default function DashboardShell({
     const [dashboardName, setDashboardName] = useState("");
     const [isSaving, setIsSaving] = useState(false);
 
+    useEffect(() => {
+        const handleLocalFilter = (e: any) => {
+            const query = e.detail;
+            if (query && onConfigUpdate) {
+                setActiveFilter(query);
+                setIsFiltering(true);
+                fetch('/api/config/filter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filterContext: query })
+                })
+                    .then(res => res.json())
+                    .then(newConfig => {
+                        if (newConfig && !newConfig.error) {
+                            onConfigUpdate(newConfig);
+                        }
+                    })
+                    .catch(err => console.error("Filter error:", err))
+                    .finally(() => setIsFiltering(false));
+            }
+        };
+        window.addEventListener("apply-local-filter", handleLocalFilter);
+        return () => window.removeEventListener("apply-local-filter", handleLocalFilter);
+    }, [onConfigUpdate]);
+
     const handleFilterClick = async (filter: typeof GLOBAL_FILTERS[0]) => {
         if (!onConfigUpdate) return;
 
@@ -154,7 +179,7 @@ export default function DashboardShell({
 
         let csvContent = "";
 
-        config.charts.forEach((chart, index) => {
+        config.charts.forEach((chart) => {
             if (!chart.data || chart.data.length === 0) return;
 
             csvContent += `--- ${chart.title} ---\n`;
