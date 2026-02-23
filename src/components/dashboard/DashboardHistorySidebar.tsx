@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Clock, Trash2, ChevronRight, ChevronLeft, Loader2 } from "lucide-react";
+import { Clock, Trash2, ChevronRight, Loader2 } from "lucide-react";
 import { DashboardConfig } from "@/components/dashboard/DynamicDashboard";
 
 interface SavedDashboard {
@@ -134,8 +134,8 @@ export default function DashboardHistorySidebar({ onSelect, currentId }: Dashboa
                                 key={dashboard.id}
                                 onClick={() => handleLoad(dashboard.id)}
                                 className={`group p-3 rounded-xl border cursor-pointer transition-all ${currentId === dashboard.id
-                                        ? "border-indigo-500 bg-indigo-50/50 dark:bg-indigo-900/20"
-                                        : "border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                    ? "border-indigo-500 bg-indigo-50/50 dark:bg-indigo-900/20"
+                                    : "border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-800"
                                     }`}
                             >
                                 <div className="flex items-start justify-between gap-2">

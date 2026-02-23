@@ -27,6 +27,20 @@ export default function DashboardPage() {
         loadConfig();
     }, []);
 
+    useEffect(() => {
+        const handleRefresh = async () => {
+            try {
+                const res = await fetch(`/api/config?t=${Date.now()}`);
+                const data = await res.json();
+                setConfig(data as DashboardConfig);
+            } catch (err) {
+                console.error("Failed to reload config", err);
+            }
+        };
+        window.addEventListener('refresh-dashboard-config', handleRefresh);
+        return () => window.removeEventListener('refresh-dashboard-config', handleRefresh);
+    }, []);
+
     if (!config) {
         return (
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">

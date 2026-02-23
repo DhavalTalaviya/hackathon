@@ -113,7 +113,11 @@ export default function ChatWidget() {
 
                 // Allow user to see the "success" message attached briefly before routing
                 setTimeout(() => {
-                    router.push('/?view=dashboard');
+                    if (window.location.pathname.includes('/dashboard')) {
+                        window.dispatchEvent(new CustomEvent('refresh-dashboard-config'));
+                    } else {
+                        router.push('/?view=dashboard');
+                    }
                 }, 1000);
                 return;
             }

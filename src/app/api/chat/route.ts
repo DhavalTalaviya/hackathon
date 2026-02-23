@@ -30,7 +30,24 @@ export async function POST(req: NextRequest) {
         action.toLowerCase().includes('get')
       ) {
       console.log('Routing to Data Analyst (Multi-Query)...');
-      const analysisResult = await getDataAnalysis(messages[messages.length - 1].content);
+      let currentConfigStr = "";
+      try {
+        const configPath = path.join(process.cwd(), 'src', 'components', 'generated', 'dashboardConfig.json');
+        if (fs.existsSync(configPath)) {
+            // Read config but strip data arrays to save tokens
+            const rawConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            if (rawConfig.charts) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                rawConfig.charts.forEach((c: any) => { delete c.data; });
+            }
+            currentConfigStr = JSON.stringify(rawConfig);
+        }
+      } catch (err) {
+        console.warn("No existing dashboard config found or failed to parse.", err);
+      }
+
+      const analysisResult = await getDataAnalysis(messages, currentConfigStr);
 
       if (analysisResult.error) {
         return NextResponse.json({ role: 'assistant', content: "I couldn't analyze the data: " + analysisResult.error });
@@ -60,7 +77,7 @@ export async function POST(req: NextRequest) {
       // Return a special structured response for the frontend
       return NextResponse.json({ 
         role: 'assistant', 
-        content: "I have analyzed the data and generated a customized dynamic dashboard for you.",
+        content: analysisResult.message || "I have analyzed the data and generated a customized dynamic dashboard for you.",
         componentCode: analysisResult.configString,
         dataviz: true
       });

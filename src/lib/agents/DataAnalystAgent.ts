@@ -7,7 +7,8 @@ const anthropic = new Anthropic({
 
 const db = new Dictionary('local.db');
 
-export const getDataAnalysis = async (query: string) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getDataAnalysis = async (messages: any[], currentConfigStr?: string) => {
   const schema = `
     Tables:
     - bookings (id, title, date, time, status, customer)
@@ -15,14 +16,14 @@ export const getDataAnalysis = async (query: string) => {
     - costs (id, category, amount, date, description)
   `;
 
-  const systemPrompt = `You are an expert Data Analyst and Visualization architect.
+  let systemPrompt = `You are an expert Data Analyst and Visualization architect.
   Your goal is to answer the user's question by designing a dashboard configuration and writing the SQL queries to power it.
   
   Database Schema (SQLite):
   ${schema}
   
   Rules:
-  1. DYNAMIC CHART VOLUME: You must evaluate the complexity of the user's query to determine how many charts to generate. 
+  1. DYNAMIC CHART VOLUME: You must evaluate the complexity of the user's query to determine how many charts to generate.
      - If it's a simple/specific question (e.g. "Show me bookings over time"), generate 1 or 2 highly targeted charts.
      - If it's a broad/complex question (e.g. "Give me a full business health breakdown"), generate a comprehensive dashboard with 4 to 6 charts spanning different data domains.
   2. Generate 4 key performance indicators (KPIs) relevant to the query.
@@ -36,6 +37,7 @@ export const getDataAnalysis = async (query: string) => {
 
   Schema for the JSON output:
   {
+    "message": "A 1-2 sentence friendly conversational response explaining what you did or generated.",
     "charts": [
       {
         "type": "BarChart" | "LineChart" | "PieChart" | "AreaChart" | "RadarChart" | "ComposedChart" | "ScatterChart" | "RadialBarChart" | "Treemap" | "FunnelChart",
@@ -79,13 +81,26 @@ export const getDataAnalysis = async (query: string) => {
   CRITICAL: OUTPUT ONLY VALID JSON. NO MARKDOWN. NO CODE BLOCKS. ENSURE THE JSON IS FULLY CLOSED AT THE END.
   `; // End of prompt
 
+  if (currentConfigStr) {
+      systemPrompt += `
+      
+  --- EXISTING DASHBOARD CONFIGURATION ---
+  The user is currently looking at the following dashboard config.
+  If their newest prompt asks to MODIFY, ADD TO, or REMOVE FROM the dashboard, you MUST use this config as your starting point, mutate it according to their request, and return the FULL mutated JSON. Do not start from scratch unless they ask a completely new unrelated question.
+  
+  CURRENT CONFIG:
+  ${currentConfigStr}
+  ----------------------------------------
+  `;
+  }
+
   try {
     // 1. Generate Dashboard JSON Config + SQL queries
     const llmResponse = await anthropic.messages.create({
       model: 'claude-opus-4-6',
       max_tokens: 4096,
       system: systemPrompt,
-      messages: [{ role: 'user', content: query }],
+      messages: messages.map(m => ({ role: m.role, content: m.content })),
     });
 
     let configString = llmResponse.content[0].type === 'text' ? llmResponse.content[0].text.trim() : '';
@@ -161,7 +176,8 @@ export const getDataAnalysis = async (query: string) => {
 
     return {
       configString: JSON.stringify(config, null, 2),
-      configObject: config
+      configObject: config,
+      message: config.message
     };
 
   } catch (error) {
